@@ -45,6 +45,7 @@ namespace MunicipalServices
                 options.Lockout.AllowedForNewUsers = true;
                 options.User.RequireUniqueEmail = false;
             });
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
