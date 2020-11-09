@@ -33,8 +33,8 @@ namespace MunicipalServices
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddDefaultUI()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<Data.Users, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddDefaultUI()
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;

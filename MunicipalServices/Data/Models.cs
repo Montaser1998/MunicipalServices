@@ -12,6 +12,9 @@ namespace MunicipalServices.Data
     //finance department
     //Engineering Department
     //Department of water
+    /// <summary>
+    /// جدول المستخدم
+    /// </summary>
     public class Users : IdentityUser
     {
         [Display(Name ="الاسم الرباعي")]
@@ -34,8 +37,8 @@ namespace MunicipalServices.Data
         public DateTime CreatedDate { get; set; }
         [Display(Name = "اخر تعديل")]
         public DateTime UpdatedDate { get; set; }
-        [Display(Name = "تم بوسطة")]
         public string UserID { get; set; }
+        [Display(Name = "تم بوسطة")]
         public Users User { get; set; }
         [Display(Name = "محذوف")]
         public bool Deleted { get; set; }
@@ -55,7 +58,9 @@ namespace MunicipalServices.Data
         [Description("دينار اردني")]
         JordanianDinar,
     }
-
+    /// <summary>
+    /// جدول سند القبض
+    /// </summary>
     public class CatchReceipts : BaseTable
     {
         [Display(Name = "وصلني من")]
@@ -73,7 +78,9 @@ namespace MunicipalServices.Data
         public CurrencyType Currency { get; set; }
         public ICollection<CashiersCheck> CashiersChecks { get; set; }
     }
-
+    /// <summary>
+    /// جدول سند الصرف
+    /// </summary>
     public class Receipts : BaseTable
     {
         [Display(Name = "المدفوع له")]
@@ -94,7 +101,9 @@ namespace MunicipalServices.Data
         public ICollection<CashiersCheck> CashiersChecks { get; set; }
     }
 
-
+    /// <summary>
+    /// جدول الشيكات
+    /// </summary>
     public class CashiersCheck : BaseTable
     {
         public Guid CatchReceiptID { get; set; }
@@ -121,6 +130,9 @@ namespace MunicipalServices.Data
         [Display(Name = "المبلغ")]
         public int AmountOfMoney { get; set; }
     }
+    /// <summary>
+    /// جدول شهادة البناء
+    /// </summary>
     public class ConstructionLicense
     {
         [Display(Name = "تاريخ اصدار الترخيص")]
@@ -165,7 +177,9 @@ namespace MunicipalServices.Data
         public Guid BillRemainingFeesID { get; set; }
         public CatchReceipts BillRemainingFees { get; set; }
     }
-
+    /// <summary>
+    /// جدول معلومات صاحب الرخصة
+    /// </summary>
     public class LicenseHolderInformation : BaseTable
     {
         public Guid ConstructionLicenseID { get; set; }
@@ -204,7 +218,9 @@ namespace MunicipalServices.Data
         [Description("بناء إضافي")]
         AdditionalBuilding
     }
-
+    /// <summary>
+    /// جدول طلب اشتراك عداد المياه
+    /// </summary>
     public class WaterMeterSubscriptionRequest : BaseTable
     {
         [Display(Name = "إسم المستفيد")]
@@ -223,7 +239,9 @@ namespace MunicipalServices.Data
         [Display(Name = "قرار البلدية")]
         public string MunicipalityDecision { get; set; }
     }
-
+    /// <summary>
+    /// جدول الشكاوي
+    /// </summary>
     public class ComplaintForm : BaseTableWithName
     {
         [Display(Name = "رقم الجوال")]
@@ -259,14 +277,9 @@ namespace MunicipalServices.Data
         [Description("غير ذلك")]
         Other
     }
-    //Number of vacation days
-    //The date the vacation began
-    //Vacation end date
-    //City
-    //The street
-    //the phone
-    //Name of the assignee
-
+    /// <summary>
+    /// جدول طلب اجازة
+    /// </summary>
     public class VacationRequest : BaseTable
     {
         [Display(Name = "عدد ايام الاجازة")]
@@ -306,7 +319,9 @@ namespace MunicipalServices.Data
         Hajj
     }
 
-
+    /// <summary>
+    /// جدول شهادة الحرف والصناعة
+    /// </summary>
     public class CraftAndIndustryLicense : BaseTable
     {
         [Display(Name = "اسم حامل الرخصة")]
