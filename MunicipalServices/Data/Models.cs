@@ -43,12 +43,6 @@ namespace MunicipalServices.Data
         [Display(Name = "محذوف")]
         public bool Deleted { get; set; }
     }
-    public class BaseTableWithName : BaseTable
-    {
-        [Display(Name = "الاسم الرباعي")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "يجب ادخال الاسم الرباعي")]
-        public string FullName { get; set; }
-    }
     public enum CurrencyType
     {
         [Description("شيكل جديد")]
@@ -242,8 +236,11 @@ namespace MunicipalServices.Data
     /// <summary>
     /// جدول الشكاوي
     /// </summary>
-    public class ComplaintForm : BaseTableWithName
+    public class ComplaintForm : BaseTable
     {
+        [Display(Name = "الاسم الرباعي")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "يجب ادخال الاسم الرباعي")]
+        public string FullName { get; set; }
         [Display(Name = "رقم الجوال")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
