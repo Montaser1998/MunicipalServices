@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,25 +10,25 @@ using MunicipalServices.Data;
 
 namespace MunicipalServices.Controllers
 {
-    public class ReceiptsController : Controller
+    public class ComplaintFormsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<Data.Users> usermanager;
 
-        public ReceiptsController(ApplicationDbContext context, Microsoft.AspNetCore.Identity.UserManager<Data.Users> user)
+        public ComplaintFormsController(ApplicationDbContext context, Microsoft.AspNetCore.Identity. UserManager<Data.Users> user)
         {
             _context = context;
             usermanager = user;
         }
 
-        // GET: Receipts
+        // GET: ComplaintForms
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Receipts.Include(r => r.User);
+            var applicationDbContext = _context.ComplaintForm.Include(c => c.User).Where(c => c.Deleted == false);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Receipts/Details/5
+        // GET: ComplaintForms/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -35,46 +36,45 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts
-                .Include(r => r.User)
+            var complaintForm = await _context.ComplaintForm
+                .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (receipts == null)
+            if (complaintForm == null)
             {
                 return NotFound();
             }
 
-            return View(receipts);
+            return View(complaintForm);
         }
 
-        // GET: Receipts/Create
+        // GET: ComplaintForms/Create
         public IActionResult Create()
         {
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Receipts/Create
+        // POST: ComplaintForms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,OnAccount,ReceivedFrom,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] Receipts receipts)
+        public async Task<IActionResult> Create([Bind("FullName,PhoneNumber,IdentificationNumber,AreaName,FullAddress,ComplaintType,SubjectComplaint,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ComplaintForm complaintForm)
         {
             if (ModelState.IsValid)
             {
                 var datetime = DateTime.UtcNow;
-                receipts.ID = Guid.NewGuid();
-                receipts.CreatedDate = datetime;
-                receipts.UpdatedDate = datetime;
-                receipts.UserID = usermanager.GetUserId(User);
-                _context.Add(receipts);
+                complaintForm.ID = Guid.NewGuid();
+                complaintForm.CreatedDate = datetime;
+                complaintForm.UpdatedDate = datetime;
+                complaintForm.UserID = usermanager.GetUserId(User);
+                _context.Add(complaintForm);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(receipts);
+            return View(complaintForm);
         }
 
-        // GET: Receipts/Edit/5
+        // GET: ComplaintForms/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -82,22 +82,22 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts.FindAsync(id);
-            if (receipts == null)
+            var complaintForm = await _context.ComplaintForm.FindAsync(id);
+            if (complaintForm == null)
             {
                 return NotFound();
             }
-            return View(receipts);
+            return View(complaintForm);
         }
 
-        // POST: Receipts/Edit/5
+        // POST: ComplaintForms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,OnAccount,ReceivedFrom,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] Receipts receipts)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FullName,PhoneNumber,IdentificationNumber,AreaName,FullAddress,ComplaintType,SubjectComplaint,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ComplaintForm complaintForm)
         {
-            if (id != receipts.ID)
+            if (id != complaintForm.ID)
             {
                 return NotFound();
             }
@@ -106,13 +106,13 @@ namespace MunicipalServices.Controllers
             {
                 try
                 {
-                    receipts.UpdatedDate = DateTime.UtcNow;
-                    _context.Update(receipts);
+                    complaintForm.UpdatedDate = DateTime.UtcNow;
+                    _context.Update(complaintForm);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReceiptsExists(receipts.ID))
+                    if (!ComplaintFormExists(complaintForm.ID))
                     {
                         return NotFound();
                     }
@@ -123,11 +123,11 @@ namespace MunicipalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", receipts.UserID);
-            return View(receipts);
+            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", complaintForm.UserID);
+            return View(complaintForm);
         }
 
-        // GET: Receipts/Delete/5
+        // GET: ComplaintForms/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +135,32 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts
-                .Include(r => r.User)
+            var complaintForm = await _context.ComplaintForm
+                .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (receipts == null)
+            if (complaintForm == null)
             {
                 return NotFound();
             }
 
-            return View(receipts);
+            return View(complaintForm);
         }
 
-        // POST: Receipts/Delete/5
+        // POST: ComplaintForms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var receipts = await _context.Receipts.FindAsync(id);
-            receipts.Deleted = true;
-            _context.Receipts.Update(receipts);
+            var complaintForm = await _context.ComplaintForm.FindAsync(id);
+            complaintForm.Deleted = true;
+            _context.ComplaintForm.Update(complaintForm);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReceiptsExists(Guid id)
+        private bool ComplaintFormExists(Guid id)
         {
-            return _context.Receipts.Any(e => e.ID == id);
+            return _context.ComplaintForm.Any(e => e.ID == id);
         }
     }
 }

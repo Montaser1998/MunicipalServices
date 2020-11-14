@@ -1,0 +1,73 @@
+﻿@model MunicipalServices.Data.VacationRequest
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>VacationRequest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DaysVacation" class="control-label"></label>
+                <input asp-for="DaysVacation" class="form-control" />
+                <span asp-validation-for="DaysVacation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartVacationDate" class="control-label"></label>
+                <input asp-for="StartVacationDate" class="form-control" />
+                <span asp-validation-for="StartVacationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndVacationDate" class="control-label"></label>
+                <input asp-for="EndVacationDate" class="form-control" />
+                <span asp-validation-for="EndVacationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Street" class="control-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameAssignee" class="control-label"></label>
+                <input asp-for="NameAssignee" class="form-control" />
+                <span asp-validation-for="NameAssignee" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Agree" /> @Html.DisplayNameFor(model => model.Agree)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="VacationType" class="control-label"></label>
+                <select asp-for="VacationType" class="form-control"></select>
+                <span asp-validation-for="VacationType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

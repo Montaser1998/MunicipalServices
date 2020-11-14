@@ -16,5 +16,10 @@ namespace MunicipalServices.Data
         }
         public DbSet<MunicipalServices.Data.CatchReceipts> CatchReceipts { get; set; }
         public DbSet<MunicipalServices.Data.Receipts> Receipts { get; set; }
+        public DbSet<MunicipalServices.Data.CashiersCheck> CashiersCheck { get; set; }
+        public DbSet<MunicipalServices.Data.VacationRequest> VacationRequest { get; set; }
+        public DbSet<MunicipalServices.Data.ComplaintForm> ComplaintForm { get; set; }
+        public DbSet<MunicipalServices.Data.CraftAndIndustryLicense> CraftAndIndustryLicense { get; set; }
+        public DbSet<MunicipalServices.Data.WaterMeterSubscriptionRequest> WaterMeterSubscriptionRequest { get; set; }
     }
 }

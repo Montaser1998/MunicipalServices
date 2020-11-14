@@ -9,25 +9,27 @@ using MunicipalServices.Data;
 
 namespace MunicipalServices.Controllers
 {
-    public class ReceiptsController : Controller
+    public class CraftAndIndustryLicensesController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<Data.Users> usermanager;
 
-        public ReceiptsController(ApplicationDbContext context, Microsoft.AspNetCore.Identity.UserManager<Data.Users> user)
+
+        public CraftAndIndustryLicensesController(ApplicationDbContext context , Microsoft.AspNetCore.Identity.UserManager<Data.Users> user)
         {
             _context = context;
             usermanager = user;
+
         }
 
-        // GET: Receipts
+        // GET: CraftAndIndustryLicenses
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Receipts.Include(r => r.User);
+            var applicationDbContext = _context.CraftAndIndustryLicense.Include(c => c.User).Where(c => c.Deleted == false); 
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Receipts/Details/5
+        // GET: CraftAndIndustryLicenses/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -35,46 +37,45 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts
-                .Include(r => r.User)
+            var craftAndIndustryLicense = await _context.CraftAndIndustryLicense
+                .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (receipts == null)
+            if (craftAndIndustryLicense == null)
             {
                 return NotFound();
             }
 
-            return View(receipts);
+            return View(craftAndIndustryLicense);
         }
 
-        // GET: Receipts/Create
+        // GET: CraftAndIndustryLicenses/Create
         public IActionResult Create()
         {
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Receipts/Create
+        // POST: CraftAndIndustryLicenses/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,OnAccount,ReceivedFrom,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] Receipts receipts)
+        public async Task<IActionResult> Create([Bind("LicenseHolderName,IdentificationNumber,CraftOrIndustryType,ClassifiedInTail,Address,Ends,LicenseFee,VoucherNumber,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CraftAndIndustryLicense craftAndIndustryLicense)
         {
             if (ModelState.IsValid)
             {
                 var datetime = DateTime.UtcNow;
-                receipts.ID = Guid.NewGuid();
-                receipts.CreatedDate = datetime;
-                receipts.UpdatedDate = datetime;
-                receipts.UserID = usermanager.GetUserId(User);
-                _context.Add(receipts);
+                craftAndIndustryLicense.ID = Guid.NewGuid();
+                craftAndIndustryLicense.CreatedDate = datetime;
+                craftAndIndustryLicense.UpdatedDate = datetime;
+                craftAndIndustryLicense.UserID = usermanager.GetUserId(User);
+                _context.Add(craftAndIndustryLicense);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(receipts);
+            return View(craftAndIndustryLicense);
         }
 
-        // GET: Receipts/Edit/5
+        // GET: CraftAndIndustryLicenses/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -82,22 +83,22 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts.FindAsync(id);
-            if (receipts == null)
+            var craftAndIndustryLicense = await _context.CraftAndIndustryLicense.FindAsync(id);
+            if (craftAndIndustryLicense == null)
             {
                 return NotFound();
             }
-            return View(receipts);
+            return View(craftAndIndustryLicense);
         }
 
-        // POST: Receipts/Edit/5
+        // POST: CraftAndIndustryLicenses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,OnAccount,ReceivedFrom,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] Receipts receipts)
+        public async Task<IActionResult> Edit(Guid id, [Bind("LicenseHolderName,IdentificationNumber,CraftOrIndustryType,ClassifiedInTail,Address,Ends,LicenseFee,VoucherNumber,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CraftAndIndustryLicense craftAndIndustryLicense)
         {
-            if (id != receipts.ID)
+            if (id != craftAndIndustryLicense.ID)
             {
                 return NotFound();
             }
@@ -106,13 +107,13 @@ namespace MunicipalServices.Controllers
             {
                 try
                 {
-                    receipts.UpdatedDate = DateTime.UtcNow;
-                    _context.Update(receipts);
+                    craftAndIndustryLicense.UpdatedDate = DateTime.UtcNow;
+                    _context.Update(craftAndIndustryLicense);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReceiptsExists(receipts.ID))
+                    if (!CraftAndIndustryLicenseExists(craftAndIndustryLicense.ID))
                     {
                         return NotFound();
                     }
@@ -123,11 +124,11 @@ namespace MunicipalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", receipts.UserID);
-            return View(receipts);
+            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", craftAndIndustryLicense.UserID);
+            return View(craftAndIndustryLicense);
         }
 
-        // GET: Receipts/Delete/5
+        // GET: CraftAndIndustryLicenses/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -135,32 +136,32 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var receipts = await _context.Receipts
-                .Include(r => r.User)
+            var craftAndIndustryLicense = await _context.CraftAndIndustryLicense
+                .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (receipts == null)
+            if (craftAndIndustryLicense == null)
             {
                 return NotFound();
             }
 
-            return View(receipts);
+            return View(craftAndIndustryLicense);
         }
 
-        // POST: Receipts/Delete/5
+        // POST: CraftAndIndustryLicenses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var receipts = await _context.Receipts.FindAsync(id);
-            receipts.Deleted = true;
-            _context.Receipts.Update(receipts);
+            var craftAndIndustryLicense = await _context.CraftAndIndustryLicense.FindAsync(id);
+            craftAndIndustryLicense.Deleted = true;
+            _context.CraftAndIndustryLicense.Update(craftAndIndustryLicense);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReceiptsExists(Guid id)
+        private bool CraftAndIndustryLicenseExists(Guid id)
         {
-            return _context.Receipts.Any(e => e.ID == id);
+            return _context.CraftAndIndustryLicense.Any(e => e.ID == id);
         }
     }
 }

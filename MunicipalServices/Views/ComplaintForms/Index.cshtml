@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MunicipalServices.Data.Receipts>
+﻿@model IEnumerable<MunicipalServices.Data.ComplaintForm>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,22 +16,22 @@
                 @Html.DisplayNameFor(model => model.FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoneyNumber)
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoneyText)
+                @Html.DisplayNameFor(model => model.IdentificationNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reason)
+                @Html.DisplayNameFor(model => model.AreaName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OnAccount)
+                @Html.DisplayNameFor(model => model.FullAddress)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReceivedFrom)
+                @Html.DisplayNameFor(model => model.ComplaintType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Currency)
+                @Html.DisplayNameFor(model => model.SubjectComplaint)
             </th>
             <th></th>
         </tr>
@@ -43,22 +43,22 @@
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoneyNumber)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoneyText)
+                @Html.DisplayFor(modelItem => item.IdentificationNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Reason)
+                @Html.DisplayFor(modelItem => item.AreaName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OnAccount)
+                @Html.DisplayFor(modelItem => item.FullAddress)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReceivedFrom)
+                @Html.DisplayFor(modelItem => item.ComplaintType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Currency)
+                @Html.DisplayFor(modelItem => item.SubjectComplaint)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

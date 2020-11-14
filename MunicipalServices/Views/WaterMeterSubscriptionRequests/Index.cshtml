@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MunicipalServices.Data.Receipts>
+﻿@model IEnumerable<MunicipalServices.Data.WaterMeterSubscriptionRequest>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,25 +13,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoneyNumber)
+                @Html.DisplayNameFor(model => model.Location)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoneyText)
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reason)
+                @Html.DisplayNameFor(model => model.BasinNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OnAccount)
+                @Html.DisplayNameFor(model => model.PieceNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReceivedFrom)
+                @Html.DisplayNameFor(model => model.WaterOfficialSuggestions)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Currency)
+                @Html.DisplayNameFor(model => model.MunicipalityDecision)
             </th>
             <th></th>
         </tr>
@@ -40,25 +40,25 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoneyNumber)
+                @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoneyText)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Reason)
+                @Html.DisplayFor(modelItem => item.BasinNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OnAccount)
+                @Html.DisplayFor(modelItem => item.PieceNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReceivedFrom)
+                @Html.DisplayFor(modelItem => item.WaterOfficialSuggestions)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Currency)
+                @Html.DisplayFor(modelItem => item.MunicipalityDecision)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

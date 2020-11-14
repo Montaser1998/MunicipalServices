@@ -45,7 +45,7 @@ namespace MunicipalServices.Data
     }
     public enum CurrencyType
     {
-        [Description("شيكل جديد")]
+        [Description("شيقل جديد")]
         NewShekel,
         [Description("دولار")]
         Dollar,
@@ -127,7 +127,7 @@ namespace MunicipalServices.Data
     /// <summary>
     /// جدول شهادة البناء
     /// </summary>
-    public class ConstructionLicense
+    public class ConstructionLicense : BaseTable 
     {
         [Display(Name = "تاريخ اصدار الترخيص")]
         public DateTime DateOfIssuance { get; set; }
