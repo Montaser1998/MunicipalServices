@@ -1,0 +1,143 @@
+﻿@model IEnumerable<MunicipalServices.Data.ConstructionLicense>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfIssuance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValidatedBySessionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TownName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Basin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstructionUse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstructionLicenseType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalCommitteeNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicenseConditions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemainingFeesDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillOfFees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillRemainingFees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfIssuance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValidatedBySessionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TownName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Basin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConstructionUse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConstructionLicenseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalCommitteeNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateApprovalLocalCommittee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenseConditions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainingFeesDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillOfFees.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillRemainingFees.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

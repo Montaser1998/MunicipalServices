@@ -150,7 +150,6 @@ namespace MunicipalServices.Data
         [Display(Name = "نوع البناء")]
         public ConstructionLicenseType ConstructionLicenseType { get; set; }
         [Display(Name = "معلومات صاحب الرخصة")]
-        public Guid LicenseHolderInformationID { get; set; }
         public LicenseHolderInformation LicenseHolderInformation { get; set; }
         [Display(Name = "رقم اللجنة المحلية")]
         public int LocalCommitteeNumber { get; set; }
