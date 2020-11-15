@@ -68,11 +68,10 @@
             z-index: 99999;
         }
     </style>
-    <base src="~/" />
-    <link href="css/css.css" rel="stylesheet" />
-    <link href="css/select2.min.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link href="~/css/css.css" rel="stylesheet" />
+    <link href="~/css/select2.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon/favicon.ico">
 </head>
 <body>
     <main>
@@ -89,7 +88,7 @@
 
 
 
-                        <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial" />
                 </div>
 
             </header>
@@ -140,7 +139,7 @@
                         </div>
 
                         <div class="sidebar__list-content ml-3">
-                            <a asp-area="" class="sidebar-item-link" asp-controller="Receipts" asp-action="Index">Receipts</a>
+                            <a asp-area="" class="sidebar-item-link"  href="#">Receipts</a>
                         </div>
 
                     </li>
@@ -189,7 +188,7 @@
                         </div>
 
                         <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="VacationRequests" asp-action="Index">Vacation Requests</a>
+                            <a class="sidebar-item-link"  href="#">Vacation Requests</a>
                         </div>
 
                     </li>
@@ -201,7 +200,7 @@
                         </div>
 
                         <div class="sidebar__list-content ml-3">
-                            <a asp-area="" class="sidebar-item-link" asp-controller="WaterMeterSubscriptionRequests" asp-action="Index">Water Meter Subscription Requests</a>
+                            <a asp-area="" class="sidebar-item-link"  href="#">Water Meter Subscription Requests</a>
 
                         </div>
                     </li>
@@ -213,108 +212,75 @@
                         </div>
 
                         <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="Users" asp-action="Index">User Management</a>
+                            <a class="sidebar-item-link" href="#">User Management</a>
 
                         </div>
                     </li>
-                    <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
-                        <div class="sidebar__list-pic">
-                            <svg width="18px" height="21px" fill="#2F4160" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <path d="M16,2.1 L15,2.1 L15,0 L13,0 L13,2.1 L5,2.1 L5,0 L3,0 L3,2.1 L2,2.1 C0.89,2.1 0.01,3.045 0.01,4.2 L0,18.9 C0,20.055 0.89,21 2,21 L16,21 C17.1,21 18,20.055 18,18.9 L18,4.2 C18,3.045 17.1,2.1 16,2.1 Z M16,18.9 L2,18.9 L2,7.35 L16,7.35 L16,18.9 Z M4,9.45 L9,9.45 L9,14.7 L4,14.7 L4,9.45 Z" id="7"></path>
-                            </svg>
-                        </div>
+                    @*<li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
+                            <div class="sidebar__list-pic">
+                                <svg width="18px" height="21px" fill="#2F4160" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path d="M16,2.1 L15,2.1 L15,0 L13,0 L13,2.1 L5,2.1 L5,0 L3,0 L3,2.1 L2,2.1 C0.89,2.1 0.01,3.045 0.01,4.2 L0,18.9 C0,20.055 0.89,21 2,21 L16,21 C17.1,21 18,20.055 18,18.9 L18,4.2 C18,3.045 17.1,2.1 16,2.1 Z M16,18.9 L2,18.9 L2,7.35 L16,7.35 L16,18.9 Z M4,9.45 L9,9.45 L9,14.7 L4,14.7 L4,9.45 Z" id="7"></path>
+                                </svg>
+                            </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a asp-area="" class="sidebar-item-link" asp-controller="EmailMessages" asp-action="Index">Email Messages</a>
+                            <div class="sidebar__list-content ml-3">
+                                <a asp-area="" class="sidebar-item-link" asp-controller="EmailMessages" asp-action="Index">Email Messages</a>
 
-                        </div>
+                            </div>
 
-                    </li>
-                    <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
-                        <div class="sidebar__list-pic">
-                            <svg width="18px" height="18px" fill="#2F4160" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <path d="M16,0 L1.99,0 C0.88,0 0.01,0.9 0.01,2 L0,16 C0,17.1 0.88,18 1.99,18 L16,18 C17.1,18 18,17.1 18,16 L18,2 C18,0.9 17.1,0 16,0 Z M16,12 L12,12 C12,13.66 10.65,15 9,15 C7.35,15 6,13.66 6,12 L1.99,12 L1.99,2 L16,2 L16,12 Z M13,7 L11,7 L11,4 L7,4 L7,7 L5,7 L9,11 L13,7 Z"></path>
-                            </svg>
-                        </div>
+                        </li>
+                        <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
+                            <div class="sidebar__list-pic">
+                                <svg width="18px" height="18px" fill="#2F4160" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path d="M16,0 L1.99,0 C0.88,0 0.01,0.9 0.01,2 L0,16 C0,17.1 0.88,18 1.99,18 L16,18 C17.1,18 18,17.1 18,16 L18,2 C18,0.9 17.1,0 16,0 Z M16,12 L12,12 C12,13.66 10.65,15 9,15 C7.35,15 6,13.66 6,12 L1.99,12 L1.99,2 L16,2 L16,12 Z M13,7 L11,7 L11,4 L7,4 L7,7 L5,7 L9,11 L13,7 Z"></path>
+                                </svg>
+                            </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a asp-area="" class="sidebar-item-link" asp-controller="UserManagement" asp-action="Index">User Management</a>
-                        </div>
+                            <div class="sidebar__list-content ml-3">
+                                <a asp-area="" class="sidebar-item-link" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                            </div>
 
-                    </li>
+                        </li>
 
-                    <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
-                        <div class="sidebar__list-pic">
-                            <svg fill="#0A1F44" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <path d="M8,11.0623382 C8,10.475625 8.49590156,10 9.10838294,10 L16.8916171,10 C17.5037601,10 18,10.4764786 18,11.0623382 L18,16.9376618 C18,17.524375 17.5040984,18 16.8916171,18 L9.10838294,18 C8.49623994,18 8,17.5235214 8,16.9376618 L8,11.0623382 Z M9,11.2733986 L9,16.7266014 C9,16.8746815 9.12747537,17 9.28472423,17 L16.7152758,17 C16.8743391,17 17,16.8775953 17,16.7266014 L17,11.2733986 C17,11.1253185 16.8725246,11 16.7152758,11 L9.28472423,11 C9.12566091,11 9,11.1224047 9,11.2733986 Z M0,11.0623382 C0,10.475625 0.526137733,10 1.17164262,10 L5.82835738,10 C6.47543773,10 7,10.4764786 7,11.0623382 L7,16.9376618 C7,17.524375 6.47386227,18 5.82835738,18 L1.17164262,18 C0.524562267,18 0,17.5235214 0,16.9376618 L0,11.0623382 Z M1,11.2733986 L1,16.7266014 C1,16.8746815 1.140033,17 1.31277237,17 L5.68722763,17 C5.855752,17 6,16.8775953 6,16.7266014 L6,11.2733986 C6,11.1253185 5.859967,11 5.68722763,11 L1.31277237,11 C1.144248,11 1,11.1224047 1,11.2733986 Z M12,1.06233823 C12,0.475625029 12.4910052,0 13.0865547,0 L16.9134453,0 C17.5135329,0 18,0.476478576 18,1.06233823 L18,6.93766176 C18,7.52437499 17.5089948,8 16.9134453,8 L13.0865547,8 C12.4864671,8 12,7.52352144 12,6.93766176 L12,1.06233823 Z M13,1.27339864 L13,6.72660138 C13,6.87468149 13.1287943,7 13.2876701,7 L16.7123299,7 C16.8669129,7 17,6.87759525 17,6.72660138 L17,1.27339864 C17,1.12531853 16.8712057,1 16.7123299,1 L13.2876701,1 C13.1330871,1 13,1.12240474 13,1.27339864 Z M0,1.06233823 C0,0.475625029 0.515798916,0 1.15640215,0 L9.84359785,0 C10.4822611,0 11,0.476478576 11,1.06233823 L11,6.93766176 C11,7.52437499 10.4842011,8 9.84359785,8 L1.15640215,8 C0.517738853,8 0,7.52352144 0,6.93766176 L0,1.06233823 Z M1,1.27339864 L1,6.72660138 C1,6.87468149 1.11917029,7 1.26617429,7 L8.73382571,7 C8.88070261,7 9,6.87759525 9,6.72660138 L9,1.27339864 C9,1.12531853 8.88082971,1 8.73382571,1 L1.26617429,1 C1.11929739,1 1,1.12240474 1,1.27339864 Z"></path>
-                            </svg>
-                        </div>
+                        <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
+                            <div class="sidebar__list-pic">
+                                <svg fill="#0A1F44" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path d="M8,11.0623382 C8,10.475625 8.49590156,10 9.10838294,10 L16.8916171,10 C17.5037601,10 18,10.4764786 18,11.0623382 L18,16.9376618 C18,17.524375 17.5040984,18 16.8916171,18 L9.10838294,18 C8.49623994,18 8,17.5235214 8,16.9376618 L8,11.0623382 Z M9,11.2733986 L9,16.7266014 C9,16.8746815 9.12747537,17 9.28472423,17 L16.7152758,17 C16.8743391,17 17,16.8775953 17,16.7266014 L17,11.2733986 C17,11.1253185 16.8725246,11 16.7152758,11 L9.28472423,11 C9.12566091,11 9,11.1224047 9,11.2733986 Z M0,11.0623382 C0,10.475625 0.526137733,10 1.17164262,10 L5.82835738,10 C6.47543773,10 7,10.4764786 7,11.0623382 L7,16.9376618 C7,17.524375 6.47386227,18 5.82835738,18 L1.17164262,18 C0.524562267,18 0,17.5235214 0,16.9376618 L0,11.0623382 Z M1,11.2733986 L1,16.7266014 C1,16.8746815 1.140033,17 1.31277237,17 L5.68722763,17 C5.855752,17 6,16.8775953 6,16.7266014 L6,11.2733986 C6,11.1253185 5.859967,11 5.68722763,11 L1.31277237,11 C1.144248,11 1,11.1224047 1,11.2733986 Z M12,1.06233823 C12,0.475625029 12.4910052,0 13.0865547,0 L16.9134453,0 C17.5135329,0 18,0.476478576 18,1.06233823 L18,6.93766176 C18,7.52437499 17.5089948,8 16.9134453,8 L13.0865547,8 C12.4864671,8 12,7.52352144 12,6.93766176 L12,1.06233823 Z M13,1.27339864 L13,6.72660138 C13,6.87468149 13.1287943,7 13.2876701,7 L16.7123299,7 C16.8669129,7 17,6.87759525 17,6.72660138 L17,1.27339864 C17,1.12531853 16.8712057,1 16.7123299,1 L13.2876701,1 C13.1330871,1 13,1.12240474 13,1.27339864 Z M0,1.06233823 C0,0.475625029 0.515798916,0 1.15640215,0 L9.84359785,0 C10.4822611,0 11,0.476478576 11,1.06233823 L11,6.93766176 C11,7.52437499 10.4842011,8 9.84359785,8 L1.15640215,8 C0.517738853,8 0,7.52352144 0,6.93766176 L0,1.06233823 Z M1,1.27339864 L1,6.72660138 C1,6.87468149 1.11917029,7 1.26617429,7 L8.73382571,7 C8.88070261,7 9,6.87759525 9,6.72660138 L9,1.27339864 C9,1.12531853 8.88082971,1 8.73382571,1 L1.26617429,1 C1.11929739,1 1,1.12240474 1,1.27339864 Z"></path>
+                                </svg>
+                            </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a asp-area="" class="sidebar-item-link" asp-controller="TranslationValues" asp-action="Index">Translation Values</a>
+                            <div class="sidebar__list-content ml-3">
+                                <a asp-area="" class="sidebar-item-link" asp-controller="TranslationValues" asp-action="Index">Translation Values</a>
 
-                        </div>
-                    </li>
-                    <li class="sidebar__list-item sidebar__list-item--last-item d-flex pl-4 pt-1 pb-2 mt-5">
-                        <div class="sidebar__list-pic">
-                            <svg width="20px" height="21px" fill="#2f4160" viewbox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <path d="m17.6407061,11.529 c17.6818283,11.193 17.7126699,10.857 17.7126699,10.5 c17.7126699,10.143 17.6818283,9.807 17.6407061,9.471 l19.8098984,7.7385 c20.0052286,7.581 20.0566312,7.2975 19.9332648,7.0665 l17.8771584,3.4335 c17.753792,3.2025 17.4762176,3.1185 17.2500459,3.2025 l14.6901934,4.2525 c14.1556057,3.8325 13.5798959,3.486 12.9527835,3.2235 l12.5621232,0.441 c12.5312816,0.189 12.3153905,0 12.0583772,0 l7.94616426,0 c7.68915096,0 7.47325978,0.189 7.44241818,0.441 l7.05175796,3.2235 c6.42464549,3.486 5.84893569,3.843 5.31434801,4.2525 l2.75449549,3.2025 c2.51804325,3.108 2.25074941,3.2025 2.12738302,3.4335 l0.0712765788,7.0665 c-0.0623703401,7.2975 -0.000687146732,7.581 0.194642966,7.7385 l2.36383526,9.471 c2.32271314,9.807 2.29187154,10.1535 2.29187154,10.5 c2.29187154,10.8465 2.32271314,11.193 2.36383526,11.529 l0.194642966,13.2615 c-0.000687146732,13.419 -0.0520898079,13.7025 0.0712765788,13.9335 l2.12738302,17.5665 c2.25074941,17.7975 2.52832378,17.8815 2.75449549,17.7975 l5.31434801,16.7475 c5.84893569,17.1675 6.42464549,17.514 7.05175796,17.7765 l7.44241818,20.559 c7.47325978,20.811 7.68915096,21 7.94616426,21 l12.0583772,21 c12.3153905,21 12.5312816,20.811 12.5621232,20.559 l12.9527835,17.7765 c13.5798959,17.514 14.1556057,17.157 14.6901934,16.7475 l17.2500459,17.7975 c17.4864982,17.892 17.753792,17.7975 17.8771584,17.5665 l19.9332648,13.9335 c20.0566312,13.7025 20.0052286,13.419 19.8098984,13.2615 l17.6407061,11.529 z m10.0022707,14.175 c8.01812799,14.175 6.40408443,12.5265 6.40408443,10.5 c6.40408443,8.4735 8.01812799,6.825 10.0022707,6.825 c11.9864134,6.825 13.600457,8.4735 13.600457,10.5 c13.600457,12.5265 11.9864134,14.175 10.0022707,14.175 z"></path>
-                            </svg>
-                        </div>
-
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link article" href="login.html">settings</a>
-                        </div>
-                    </li>
+                            </div>
+                        </li>*@
                 </ul>
 
                 <button class="sidebar__hide-btn" id="sidebar-hide-btn">Hide sidebar</button>
             </nav>
             <div class="roots-content sidebar-is-hidden d-flex flex-column">
 
-                @*<div class="tabs-wrapper">
-
-                <ul class="roots-tabs nav nav-tabs">
-                    <li class="roots-tabs__item nav-item active">
-                        <a class="roots-tabs__link nav-link" href="#">Product List</a>
-                    </li>
-                    <li class="roots-tabs__item nav-item">
-                        <a class="roots-tabs__link nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="roots-tabs__item nav-item">
-                        <a class="roots-tabs__link nav-link" href="categories.html">Categories</a>
-                    </li>
-                    <li class="roots-tabs__item nav-item">
-                        <a class="roots-tabs__link nav-link" href="index_ar.html">Arabian</a>
-                    </li>
-                    <li class="roots-tabs__item nav-item">
-                        <a class="roots-tabs__link nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Register") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
+                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Log in") || ViewData["Title"].ToString().Contains("Profile") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
                 {
-
-                    <div class="tabs-buttons">
-                        <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
-                            Create
-                        </a>
+                    <div class="tabs-wrapper">
+                        <div class="tabs-buttons">
+                            <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
+                                Create
+                            </a>
+                        </div>
                     </div>
                 }
-
-            </div>*@
-
-                <div class="roots-content-wrapper my-4 container-fluid">
+                <div class="roots-content-wrapper my-4 container-fluid" style="min-height:600px">
                     @RenderBody()
                 </div>
-
-
             </div>
         </div>
-
     </main>
-
-
-    <footer></footer>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - خدمات بلدية العوجا
+        </div>
+    </footer>
     <div class="roots-modal modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="roots-modal__dialog modal-dialog modal-dialog-centered" role="document">
             <div class="roots-modal__content modal-content">

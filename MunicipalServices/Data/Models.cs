@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -164,11 +165,9 @@ namespace MunicipalServices.Data
         [Display(Name = "تاريخ باقي الرسوم")]
         public DateTime RemainingFeesDate { get; set; }
         [Display(Name = "وصل الرسوم (غير مستردة) ")]
-        public Guid BillOfFeesID { get; set; }
-        public CatchReceipts BillOfFees { get; set; }
+        public Guid? BillOfFeesID { get; set; }
         [Display(Name = "وصل باقي الرسوم")]
-        public Guid BillRemainingFeesID { get; set; }
-        public CatchReceipts BillRemainingFees { get; set; }
+        public Guid? BillRemainingFeesID { get; set; }
     }
     /// <summary>
     /// جدول معلومات صاحب الرخصة

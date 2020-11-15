@@ -1,71 +1,46 @@
 ﻿@model IEnumerable<MunicipalServices.Data.CatchReceipts>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CatchReceipts";
 }
+<div class="table-responsive">
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoneyNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Reason)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ToAccount)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.UpdatedDate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
 
-<h1>Index</h1>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoneyNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Reason)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ToAccount)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.UpdatedDate)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
+                    <td class="table-text table-product-more-btn">
+                        <div class="dropdown">
+                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
+                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
+                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
+                                @*<a class="dropdown-item" data-toggle="modal" data-target="#deleteConfirmModal">Delete</a>*@
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoneyNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reason)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ToAccount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Currency)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoneyNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reason)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToAccount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Currency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

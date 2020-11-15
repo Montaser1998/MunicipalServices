@@ -1,116 +1,104 @@
 ﻿@model MunicipalServices.Data.ConstructionLicense
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Construction License";
 }
 
-<h1>Create</h1>
-
-<h4>ConstructionLicense</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DateOfIssuance" class="control-label"></label>
-                <input asp-for="DateOfIssuance" class="form-control" />
-                <span asp-validation-for="DateOfIssuance" class="text-danger"></span>
+<form asp-action="Create" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title">Create</h3>
+        </div>
+        <div class="content-box-body">
+            <div class="content-box-body__row row">
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="DateOfIssuance" class="control-label"></label>
+                    <input asp-for="DateOfIssuance" class="form-control" />
+                    <span asp-validation-for="DateOfIssuance" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="FileNumber" class="control-label"></label>
+                    <input asp-for="FileNumber" class="form-control" />
+                    <span asp-validation-for="FileNumber" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="ValidatedBySessionNumber" class="control-label"></label>
+                    <input asp-for="ValidatedBySessionNumber" class="form-control" />
+                    <span asp-validation-for="ValidatedBySessionNumber" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="TownName" class="control-label"></label>
+                    <input asp-for="TownName" class="form-control" />
+                    <span asp-validation-for="TownName" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="District" class="control-label"></label>
+                    <input asp-for="District" class="form-control" />
+                    <span asp-validation-for="District" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="Street" class="control-label"></label>
+                    <input asp-for="Street" class="form-control" />
+                    <span asp-validation-for="Street" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="Basin" class="control-label"></label>
+                    <input asp-for="Basin" class="form-control" />
+                    <span asp-validation-for="Basin" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="Part" class="control-label"></label>
+                    <input asp-for="Part" class="form-control" />
+                    <span asp-validation-for="Part" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="ConstructionUse" class="control-label"></label>
+                    <input asp-for="ConstructionUse" class="form-control" />
+                    <span asp-validation-for="ConstructionUse" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="ConstructionLicenseType" class="control-label"></label>
+                    <input asp-for="ConstructionLicenseType" class="form-control" />
+                    <span asp-validation-for="ConstructionLicenseType" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="LocalCommitteeNumber" class="control-label"></label>
+                    <input asp-for="LocalCommitteeNumber" class="form-control" />
+                    <span asp-validation-for="LocalCommitteeNumber" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="DateApprovalLocalCommittee" class="control-label"></label>
+                    <input asp-for="DateApprovalLocalCommittee" class="form-control" />
+                    <span asp-validation-for="DateApprovalLocalCommittee" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="LicenseDescription" class="control-label"></label>
+                    <input asp-for="LicenseDescription" class="form-control" />
+                    <span asp-validation-for="LicenseDescription" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="LicenseConditions" class="control-label"></label>
+                    <input asp-for="LicenseConditions" class="form-control" />
+                    <span asp-validation-for="LicenseConditions" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="FeeDate" class="control-label"></label>
+                    <input asp-for="FeeDate" class="form-control" />
+                    <span asp-validation-for="FeeDate" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="RemainingFeesDate" class="control-label"></label>
+                    <input asp-for="RemainingFeesDate" class="form-control" />
+                    <span asp-validation-for="RemainingFeesDate" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FileNumber" class="control-label"></label>
-                <input asp-for="FileNumber" class="form-control" />
-                <span asp-validation-for="FileNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ValidatedBySessionNumber" class="control-label"></label>
-                <input asp-for="ValidatedBySessionNumber" class="form-control" />
-                <span asp-validation-for="ValidatedBySessionNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TownName" class="control-label"></label>
-                <input asp-for="TownName" class="form-control" />
-                <span asp-validation-for="TownName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="District" class="control-label"></label>
-                <input asp-for="District" class="form-control" />
-                <span asp-validation-for="District" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Street" class="control-label"></label>
-                <input asp-for="Street" class="form-control" />
-                <span asp-validation-for="Street" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Basin" class="control-label"></label>
-                <input asp-for="Basin" class="form-control" />
-                <span asp-validation-for="Basin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Part" class="control-label"></label>
-                <input asp-for="Part" class="form-control" />
-                <span asp-validation-for="Part" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConstructionUse" class="control-label"></label>
-                <input asp-for="ConstructionUse" class="form-control" />
-                <span asp-validation-for="ConstructionUse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConstructionLicenseType" class="control-label"></label>
-                <select asp-for="ConstructionLicenseType" class="form-control"></select>
-                <span asp-validation-for="ConstructionLicenseType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LocalCommitteeNumber" class="control-label"></label>
-                <input asp-for="LocalCommitteeNumber" class="form-control" />
-                <span asp-validation-for="LocalCommitteeNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateApprovalLocalCommittee" class="control-label"></label>
-                <input asp-for="DateApprovalLocalCommittee" class="form-control" />
-                <span asp-validation-for="DateApprovalLocalCommittee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LicenseDescription" class="control-label"></label>
-                <input asp-for="LicenseDescription" class="form-control" />
-                <span asp-validation-for="LicenseDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LicenseConditions" class="control-label"></label>
-                <input asp-for="LicenseConditions" class="form-control" />
-                <span asp-validation-for="LicenseConditions" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FeeDate" class="control-label"></label>
-                <input asp-for="FeeDate" class="form-control" />
-                <span asp-validation-for="FeeDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RemainingFeesDate" class="control-label"></label>
-                <input asp-for="RemainingFeesDate" class="form-control" />
-                <span asp-validation-for="RemainingFeesDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BillOfFeesID" class="control-label"></label>
-                <select asp-for="BillOfFeesID" class ="form-control" asp-items="ViewBag.BillOfFeesID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="BillRemainingFeesID" class="control-label"></label>
-                <select asp-for="BillRemainingFeesID" class ="form-control" asp-items="ViewBag.BillRemainingFeesID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Create</button>
+        </div>
+        <br />
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</form>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MunicipalServices.Data.LicenseHolderInformation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="table-responsive">
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">@Html.DisplayNameFor(model => model.NameLicenseHolder)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.IdentityNumberLicenseHolder)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AddressLicenseHolder)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.PhoneNumberLicenseHolder)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.NameDesigningOffice)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.IdentityNumberDesignerOffice)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AddressDesignerOffice)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.PhoneNumberDesignerOffice)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.NameSupervisingEngineer)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.IdentityNumberSupervisingEngineer)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AddressSupervisingEngineer)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseHolderName)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.IdentityNumberLicenseHolder)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AddressLicenseHolder)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.PhoneNumberLicenseHolder)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.NameDesigningOffice)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.IdentityNumberDesignerOffice)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AddressDesignerOffice)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.PhoneNumberDesignerOffice)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.NameSupervisingEngineer)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.IdentityNumberSupervisingEngineer)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AddressSupervisingEngineer)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
+                    <td class="table-text table-product-more-btn">
+                        <div class="dropdown">
+                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
+                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
+                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
+                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

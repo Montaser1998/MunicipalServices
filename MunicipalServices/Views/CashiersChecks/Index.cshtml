@@ -1,101 +1,50 @@
 ﻿@model IEnumerable<MunicipalServices.Data.CashiersCheck>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CashiersChecks";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CatchReceipt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Receipt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumberID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CheckNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodeBank)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BankName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CodeBranch)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BranchName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfTheWorthy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountOfMoney)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CatchReceipt.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Receipt.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeBank)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BankName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeBranch)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BranchName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfTheWorthy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmountOfMoney)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">@Html.DisplayNameFor(model => model.NumberID)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CheckNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AccountNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CodeBank)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.BankName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CodeBranch)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.DateOfTheWorthy)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoney)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.NumberID)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CheckNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBank)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.BankName)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBranch)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateOfTheWorthy)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoney)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User)</td>
+                    <td class="table-text table-product-more-btn">
+                        <div class="dropdown">
+                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
+                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
+                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
+                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

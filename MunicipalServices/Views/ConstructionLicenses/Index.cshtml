@@ -1,143 +1,62 @@
 ﻿@model IEnumerable<MunicipalServices.Data.ConstructionLicense>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ConstructionLicenses";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfIssuance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FileNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValidatedBySessionNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TownName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.District)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Basin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Part)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConstructionUse)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConstructionLicenseType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LocalCommitteeNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LicenseDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LicenseConditions)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FeeDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RemainingFeesDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BillOfFees)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BillRemainingFees)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfIssuance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValidatedBySessionNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TownName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.District)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Basin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Part)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConstructionUse)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConstructionLicenseType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalCommitteeNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateApprovalLocalCommittee)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LicenseDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LicenseConditions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FeeDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RemainingFeesDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BillOfFees.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BillRemainingFees.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">@Html.DisplayNameFor(model => model.DateOfIssuance)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FileNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ValidatedBySessionNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.TownName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.District)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Street)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Basin)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ConstructionUse)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ConstructionLicenseType)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.LocalCommitteeNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.LicenseDescription)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FeeDate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.RemainingFeesDate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateOfIssuance)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FileNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ValidatedBySessionNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.TownName)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.District)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Street)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Basin)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionUse)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionLicenseType)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LocalCommitteeNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateApprovalLocalCommittee)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseDescription)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FeeDate)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.RemainingFeesDate)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
+                    <td class="table-text table-product-more-btn">
+                        <div class="dropdown">
+                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
+                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
+                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
+                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

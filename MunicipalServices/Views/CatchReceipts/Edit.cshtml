@@ -4,59 +4,61 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>CatchReceipts</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title">Catch Receipts</h3>
+        </div>
+
+        <div class="content-box-body">
+
+            <div class="content-box-body">
+                <div class="content-box-body__row row">
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="AmountOfMoneyNumber" class="control-label"></label>
+                        <input asp-for="AmountOfMoneyNumber" class="form-control" />
+                        <span asp-validation-for="AmountOfMoneyNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="AmountOfMoneyText" class="control-label"></label>
+                        <input asp-for="AmountOfMoneyText" class="form-control" />
+                        <span asp-validation-for="AmountOfMoneyText" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Reason" class="control-label"></label>
+                        <input asp-for="Reason" class="form-control" />
+                        <span asp-validation-for="Reason" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="ToAccount" class="control-label"></label>
+                        <input asp-for="ToAccount" class="form-control" />
+                        <span asp-validation-for="ToAccount" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Currency" class="control-label"></label>
+                        <select asp-for="Currency" class="form-control">
+                            <option value="0">شيكل</option>
+                            <option value="1">الدولار</option>
+                            <option value="2">الدينار</option>
+                        </select>
+                        <span asp-validation-for="Currency" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="AmountOfMoneyNumber" class="control-label"></label>
-                <input asp-for="AmountOfMoneyNumber" class="form-control" />
-                <span asp-validation-for="AmountOfMoneyNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AmountOfMoneyText" class="control-label"></label>
-                <input asp-for="AmountOfMoneyText" class="form-control" />
-                <span asp-validation-for="AmountOfMoneyText" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reason" class="control-label"></label>
-                <input asp-for="Reason" class="form-control" />
-                <span asp-validation-for="Reason" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ToAccount" class="control-label"></label>
-                <input asp-for="ToAccount" class="form-control" />
-                <span asp-validation-for="ToAccount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Currency" class="control-label"></label>
-                <select asp-for="Currency" class="form-control">
-                    <option value="0">شيكل</option>
-                    <option value="1">الدولار</option>
-                    <option value="2">الدينار</option>
-                </select>
-                <span asp-validation-for="Currency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Save</button>
+        </div>
+        <br />
     </div>
-</div>
+</form>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

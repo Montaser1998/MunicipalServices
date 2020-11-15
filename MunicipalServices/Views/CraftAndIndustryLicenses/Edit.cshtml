@@ -4,66 +4,61 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>CraftAndIndustryLicense</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="LicenseHolderName" class="control-label"></label>
-                <input asp-for="LicenseHolderName" class="form-control" />
-                <span asp-validation-for="LicenseHolderName" class="text-danger"></span>
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title">Complaint Form</h3>
+        </div>
+        <div class="content-box-body">
+            <div class="content-box-body__row row">
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="LicenseHolderName" class="control-label"></label>
+                    <input asp-for="LicenseHolderName" class="form-control" />
+                    <span asp-validation-for="LicenseHolderName" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="IdentificationNumber" class="control-label"></label>
+                    <input asp-for="IdentificationNumber" class="form-control" />
+                    <span asp-validation-for="IdentificationNumber" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="CraftOrIndustryType" class="control-label"></label>
+                    <input asp-for="CraftOrIndustryType" class="form-control" />
+                    <span asp-validation-for="CraftOrIndustryType" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="ClassifiedInTail" class="control-label"></label>
+                    <input asp-for="ClassifiedInTail" class="form-control" />
+                    <span asp-validation-for="ClassifiedInTail" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="Ends" class="control-label"></label>
+                    <input asp-for="Ends" class="form-control" />
+                    <span asp-validation-for="Ends" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="LicenseFee" class="control-label"></label>
+                    <input asp-for="LicenseFee" class="form-control" />
+                    <span asp-validation-for="LicenseFee" class="text-danger"></span>
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label asp-for="VoucherNumber" class="control-label"></label>
+                    <input asp-for="VoucherNumber" class="form-control" />
+                    <span asp-validation-for="VoucherNumber" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="IdentificationNumber" class="control-label"></label>
-                <input asp-for="IdentificationNumber" class="form-control" />
-                <span asp-validation-for="IdentificationNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CraftOrIndustryType" class="control-label"></label>
-                <input asp-for="CraftOrIndustryType" class="form-control" />
-                <span asp-validation-for="CraftOrIndustryType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClassifiedInTail" class="control-label"></label>
-                <input asp-for="ClassifiedInTail" class="form-control" />
-                <span asp-validation-for="ClassifiedInTail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ends" class="control-label"></label>
-                <input asp-for="Ends" class="form-control" />
-                <span asp-validation-for="Ends" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LicenseFee" class="control-label"></label>
-                <input asp-for="LicenseFee" class="form-control" />
-                <span asp-validation-for="LicenseFee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VoucherNumber" class="control-label"></label>
-                <input asp-for="VoucherNumber" class="form-control" />
-                <span asp-validation-for="VoucherNumber" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Save</button>
+        </div>
+        <br />
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</form>

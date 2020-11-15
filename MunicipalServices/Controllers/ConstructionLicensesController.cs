@@ -24,7 +24,7 @@ namespace MunicipalServices.Controllers
         // GET: ConstructionLicenses
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.ConstructionLicense.Include(c => c.BillOfFees).Include(c => c.BillRemainingFees).Include(c => c.User).Where(c=>c.Deleted == false);
+            var applicationDbContext = _context.ConstructionLicense.Include(c => c.User).Where(c=>c.Deleted == false);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -37,8 +37,6 @@ namespace MunicipalServices.Controllers
             }
 
             var constructionLicense = await _context.ConstructionLicense
-                .Include(c => c.BillOfFees)
-                .Include(c => c.BillRemainingFees)
                 .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (constructionLicense == null)
@@ -151,8 +149,6 @@ namespace MunicipalServices.Controllers
             }
 
             var constructionLicense = await _context.ConstructionLicense
-                .Include(c => c.BillOfFees)
-                .Include(c => c.BillRemainingFees)
                 .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (constructionLicense == null)

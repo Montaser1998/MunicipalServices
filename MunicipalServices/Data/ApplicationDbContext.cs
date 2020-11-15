@@ -14,6 +14,7 @@ namespace MunicipalServices.Data
             : base(options)
         {
         }
+
         public DbSet<MunicipalServices.Data.CatchReceipts> CatchReceipts { get; set; }
         public DbSet<MunicipalServices.Data.Receipts> Receipts { get; set; }
         public DbSet<MunicipalServices.Data.CashiersCheck> CashiersCheck { get; set; }
@@ -22,5 +23,6 @@ namespace MunicipalServices.Data
         public DbSet<MunicipalServices.Data.CraftAndIndustryLicense> CraftAndIndustryLicense { get; set; }
         public DbSet<MunicipalServices.Data.WaterMeterSubscriptionRequest> WaterMeterSubscriptionRequest { get; set; }
         public DbSet<MunicipalServices.Data.ConstructionLicense> ConstructionLicense { get; set; }
+        public DbSet<MunicipalServices.Data.LicenseHolderInformation> LicenseHolderInformation { get; set; }
     }
 }
