@@ -52,9 +52,9 @@
                     <select asp-for="VacationType" class="form-control"></select>
                     <span asp-validation-for="VacationType" class="text-danger"></span>
                 </div>
-                <div class="form-item-valid form-group form-check col-12 col-md-6">
+                <div class="form-group form-check col-12 col-md-6">
                     <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Agree" /> @Html.DisplayNameFor(model => model.Agree)
+                        <input type="checkbox" class="form-check-input" asp-for="Agree" /> @Html.DisplayNameFor(model => model.Agree)
                     </label>
                 </div>
             </div>

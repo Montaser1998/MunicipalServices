@@ -37,6 +37,7 @@ namespace MunicipalServices.Controllers
             }
 
             var constructionLicense = await _context.ConstructionLicense
+                .Include(c => c.LicenseHolderInformation)
                 .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (constructionLicense == null)
@@ -64,7 +65,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LicenseHolderInformation,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ConstructionLicense constructionLicense)
+        public async Task<IActionResult> Create([Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LicenseHolderInformation,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID")] ConstructionLicense constructionLicense)
         {
             if (ModelState.IsValid)
             {
@@ -82,9 +83,6 @@ namespace MunicipalServices.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillOfFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillOfFeesID);
-            ViewData["BillRemainingFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillRemainingFeesID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", constructionLicense.UserID);
             return View(constructionLicense);
         }
 
@@ -96,7 +94,7 @@ namespace MunicipalServices.Controllers
                 return NotFound();
             }
 
-            var constructionLicense = await _context.ConstructionLicense.FindAsync(id);
+            var constructionLicense = await _context.ConstructionLicense.Include(c => c.LicenseHolderInformation).Where(c=>c.ID == id).SingleOrDefaultAsync();
             if (constructionLicense == null)
             {
                 return NotFound();
@@ -113,7 +111,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ConstructionLicense constructionLicense)
+        public async Task<IActionResult> Edit(Guid id, [Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LicenseHolderInformation,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID,ID,CreatedDate,UserID")] ConstructionLicense constructionLicense)
         {
             if (id != constructionLicense.ID)
             {
@@ -142,9 +140,6 @@ namespace MunicipalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BillOfFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillOfFeesID);
-            ViewData["BillRemainingFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillRemainingFeesID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", constructionLicense.UserID);
             return View(constructionLicense);
         }
 
@@ -157,6 +152,7 @@ namespace MunicipalServices.Controllers
             }
 
             var constructionLicense = await _context.ConstructionLicense
+                .Include(c => c.LicenseHolderInformation)
                 .Include(c => c.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (constructionLicense == null)

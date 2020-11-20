@@ -30,7 +30,7 @@
             @foreach (var item in Model)
             {
                 <tr class="table-row-item">
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateOfIssuance)</td>
+                    <td class="table-bold-text">@item.DateOfIssuance.ToShortDateString()</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FileNumber)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ValidatedBySessionNumber)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.TownName)</td>
@@ -40,10 +40,10 @@
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionUse)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionLicenseType)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LocalCommitteeNumber)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateApprovalLocalCommittee)</td>
+                    <td class="table-bold-text">@item.DateApprovalLocalCommittee.ToShortDateString()</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseDescription)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FeeDate)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.RemainingFeesDate)</td>
+                    <td class="table-bold-text">@item.FeeDate.ToShortDateString()</td>
+                    <td class="table-bold-text">@item.RemainingFeesDate.ToShortDateString()</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
                     <td class="table-text table-product-more-btn">
                         <div class="dropdown">
