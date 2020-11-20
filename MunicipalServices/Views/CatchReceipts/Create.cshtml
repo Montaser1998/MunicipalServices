@@ -1,15 +1,14 @@
 ﻿@model MunicipalServices.Data.CatchReceipts
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Catch Receipts";
 }
 
 <form asp-action="Create" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="content-box mt-2">
         <div class="content-box-header">
-            <h3 class="content-box__title">CatchReceipts</h3>
+            <h3 class="content-box__title">Create</h3>
         </div>
 
         <div class="content-box-body">
@@ -41,11 +40,7 @@
                     </div>
                     <div class="form-item-valid form-group col-12 col-md-6">
                         <label asp-for="Currency" class="control-label"></label>
-                        <select asp-for="Currency" class="form-control">
-                            <option value="0">شيكل</option>
-                            <option value="1">الدولار</option>
-                            <option value="2">الدينار</option>
-                        </select>
+                        <select asp-for="Currency" asp-items="ViewBag.CurrencyType" class="form-control"></select>
                         <span asp-validation-for="Currency" class="text-danger"></span>
                     </div>
             </div>

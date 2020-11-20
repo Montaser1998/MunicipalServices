@@ -6341,7 +6341,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .input-label {
-    font-size: 12px;
+    font-size: 17px;
     color: #404252;
     width: 100%
 }
@@ -6895,7 +6895,7 @@ a.text-dark:focus, a.text-dark:hover {
 .roots-modal__subtitle {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 20px;
     color: #53627c;
     letter-spacing: 0;
     line-height: 20px
@@ -7133,11 +7133,10 @@ a.text-dark:focus, a.text-dark:hover {
 
 .table-row-thead th {
     margin: 20px;
-    font-weight: 400;
-    font-size: 12px;
-    color: #8d8e98
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
 }
-
 tr.table-row-item {
     background-color: #fff;
     margin: 20px
@@ -7149,8 +7148,8 @@ tr.table-row-item {
 
 .table-bold-text, .table-text {
     font-weight: 600;
-    font-size: 14px;
-    color: #777
+    font-size: 15px;
+    color: #000;
 }
 
 .table-text {

@@ -101,12 +101,10 @@ namespace MunicipalServices.Data
     /// </summary>
     public class CashiersCheck : BaseTable
     {
-        public Guid CatchReceiptID { get; set; }
+        public Guid? CatchReceiptID { get; set; }
         public CatchReceipts CatchReceipt { get; set; }
-        public Guid ReceiptID { get; set; }
+        public Guid? ReceiptID { get; set; }
         public Receipts Receipt { get; set; }
-        [Display(Name = "الرقم")]
-        public int NumberID { get; set; } 
         [Display(Name = "رقم الشيك")]
         public int CheckNumber { get; set; }
         [Display(Name = "رقم الحساب")]

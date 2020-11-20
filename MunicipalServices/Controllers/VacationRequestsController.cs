@@ -49,6 +49,7 @@ namespace MunicipalServices.Controllers
         // GET: VacationRequests/Create
         public IActionResult Create()
         {
+            ViewData["VacationType"] = new SelectList(from VacationType d in Enum.GetValues(typeof(VacationType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DaysVacation,StartVacationDate,EndVacationDate,City,Street,PhoneNumber,NameAssignee,Agree,VacationType,ID,CreatedDate,UpdatedDate,UserID,Deleted")] VacationRequest vacationRequest)
+        public async Task<IActionResult> Create([Bind("DaysVacation,StartVacationDate,EndVacationDate,City,Street,PhoneNumber,NameAssignee,Agree,VacationType")] VacationRequest vacationRequest)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +87,8 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
-             return View(vacationRequest);
+            ViewData["VacationType"] = new SelectList(from VacationType d in Enum.GetValues(typeof(VacationType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
+            return View(vacationRequest);
         }
 
         // POST: VacationRequests/Edit/5
@@ -94,7 +96,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("DaysVacation,StartVacationDate,EndVacationDate,City,Street,PhoneNumber,NameAssignee,Agree,VacationType,ID,CreatedDate,UpdatedDate,UserID,Deleted")] VacationRequest vacationRequest)
+        public async Task<IActionResult> Edit(Guid id, [Bind("DaysVacation,StartVacationDate,EndVacationDate,City,Street,PhoneNumber,NameAssignee,Agree,VacationType,ID,CreatedDate,UserID")] VacationRequest vacationRequest)
         {
             if (id != vacationRequest.ID)
             {

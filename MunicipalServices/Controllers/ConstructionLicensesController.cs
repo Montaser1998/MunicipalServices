@@ -50,10 +50,13 @@ namespace MunicipalServices.Controllers
         // GET: ConstructionLicenses/Create
         public IActionResult Create()
         {
+            ViewData["ConstructionLicenseType"] = new SelectList(from ConstructionLicenseType d in Enum.GetValues(typeof(ConstructionLicenseType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             ViewData["BillOfFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName");
             ViewData["BillRemainingFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName");
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            var model = new ConstructionLicense();
+            model.LicenseHolderInformation = new LicenseHolderInformation();
+            return View(model);
         }
 
         // POST: ConstructionLicenses/Create
@@ -61,7 +64,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ConstructionLicense constructionLicense)
+        public async Task<IActionResult> Create([Bind("DateOfIssuance,FileNumber,ValidatedBySessionNumber,TownName,District,Street,Basin,Part,ConstructionUse,ConstructionLicenseType,LicenseHolderInformation,LocalCommitteeNumber,DateApprovalLocalCommittee,LicenseDescription,LicenseConditions,FeeDate,RemainingFeesDate,BillOfFeesID,BillRemainingFeesID,ID,CreatedDate,UpdatedDate,UserID,Deleted")] ConstructionLicense constructionLicense)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +73,10 @@ namespace MunicipalServices.Controllers
                 constructionLicense.CreatedDate = dateTime;
                 constructionLicense.UpdatedDate = dateTime;
                 constructionLicense.UserID = _userManager.GetUserId(User);
+                constructionLicense.LicenseHolderInformation.ConstructionLicenseID = constructionLicense.ID;
+                constructionLicense.LicenseHolderInformation.CreatedDate = dateTime;
+                constructionLicense.LicenseHolderInformation.UpdatedDate = dateTime;
+                constructionLicense.LicenseHolderInformation.UserID = _userManager.GetUserId(User);
 
                 _context.Add(constructionLicense);
                 await _context.SaveChangesAsync();
@@ -94,6 +101,7 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
+            ViewData["ConstructionLicenseType"] = new SelectList(from ConstructionLicenseType d in Enum.GetValues(typeof(ConstructionLicenseType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             ViewData["BillOfFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillOfFeesID);
             ViewData["BillRemainingFeesID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", constructionLicense.BillRemainingFeesID);
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", constructionLicense.UserID);

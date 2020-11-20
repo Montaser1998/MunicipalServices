@@ -50,7 +50,7 @@ namespace MunicipalServices.Controllers
         // GET: CatchReceipts/Create
         public IActionResult Create()
         {
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["CurrencyType"] = new SelectList(from CurrencyType d in Enum.GetValues(typeof(CurrencyType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,ToAccount,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CatchReceipts catchReceipts)
+        public async Task<IActionResult> Create([Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,ToAccount,Currency")] CatchReceipts catchReceipts)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,6 @@ namespace MunicipalServices.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", catchReceipts.UserID);
             return View(catchReceipts);
         }
 
@@ -89,7 +88,7 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", catchReceipts.UserID);
+            ViewData["CurrencyType"] = new SelectList(from CurrencyType d in Enum.GetValues(typeof(CurrencyType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View(catchReceipts);
         }
 
@@ -98,7 +97,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,ToAccount,Currency,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CatchReceipts catchReceipts)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FullName,AmountOfMoneyNumber,AmountOfMoneyText,Reason,ToAccount,Currency")] CatchReceipts catchReceipts)
         {
             if (id != catchReceipts.ID)
             {
@@ -127,7 +126,6 @@ namespace MunicipalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", catchReceipts.UserID);
             return View(catchReceipts);
         }
 

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "CashiersChecks";
+    int numberIndex = 0;
 }
 
 <div class="table-responsive">
@@ -21,11 +22,10 @@
             </tr>
         </thead>
         <tbody>
-            @{ int numberIndex = 1; }
             @foreach (var item in Model)
             {
                 <tr class="table-row-item">
-                    <td class="table-bold-text">@numberIndex</td>
+                    <td class="table-bold-text">@(numberIndex = numberIndex + 1)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CheckNumber)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AccountNumber)</td>
                     <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBank)</td>
@@ -38,14 +38,20 @@
                         <div class="dropdown">
                             <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
-                                <a class="dropdown-item" asp-action="edit" asp-route-CashiersCheckID="@item.ID">Edit</a>
-                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
-                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                                @if (item.CatchReceiptID != null)
+                                {
+                                    <a class="dropdown-item" asp-action="edit" asp-controller="CashiersChecks" asp-route-id="@item.ID" asp-route-CheckReceiptID="@item.CatchReceiptID" asp-route-IsCatchReceipts="true">Edit</a>
+                                }
+                                else if (item.ReceiptID != null)
+                                {
+                                    <a class="dropdown-item" asp-action="edit" asp-controller="CashiersChecks" asp-route-id="@item.ID" asp-route-CheckReceiptID="@item.ReceiptID" asp-route-IsCatchReceipts="false">Edit</a>
+                                }
+                                <a class="dropdown-item" asp-action="details" asp-controller="CashiersChecks" asp-route-id="@item.ID">Details</a>
+                                <a class="dropdown-item" asp-action="delete" asp-controller="CashiersChecks" asp-route-id="@item.ID">Delete</a>
                             </div>
                         </div>
                     </td>
                 </tr>
-                @(numberIndex++)
             }
         </tbody>
     </table>

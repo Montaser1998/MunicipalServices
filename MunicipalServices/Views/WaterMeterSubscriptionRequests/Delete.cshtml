@@ -1,81 +1,63 @@
 ﻿@model MunicipalServices.Data.WaterMeterSubscriptionRequest
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Water Meter Subscription Request";
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>WaterMeterSubscriptionRequest</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BasinNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BasinNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PieceNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PieceNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterOfficialSuggestions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WaterOfficialSuggestions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MunicipalityDecision)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MunicipalityDecision)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd class>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<div class="content-box mt-2">
+    <div class="content-box-header">
+        <h3 class="content-box__title">Delete</h3>
+    </div>
+    <div class="content-box-body">
+        <div class="content-box-body__row row">
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.Name)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Name)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label">@Html.DisplayNameFor(model => model.Location)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Location)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.BasinNumber)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.BasinNumber)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.PieceNumber)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PieceNumber)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.WaterOfficialSuggestions)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.WaterOfficialSuggestions)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.MunicipalityDecision)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.MunicipalityDecision)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.User)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="root-space__btn-wrapp" style="margin-left:15px;">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID" />
+            <a asp-action="Index" class="roots-btn btn btn-primary mr-3">Cancel</a>
+            <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
+        </form>
+    </div>
+    <br />
 </div>

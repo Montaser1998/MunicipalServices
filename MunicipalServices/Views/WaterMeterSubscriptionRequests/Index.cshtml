@@ -1,71 +1,48 @@
 ﻿@model IEnumerable<MunicipalServices.Data.WaterMeterSubscriptionRequest>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "WaterMeterSubscriptionRequests";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BasinNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PieceNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WaterOfficialSuggestions)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MunicipalityDecision)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BasinNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PieceNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WaterOfficialSuggestions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MunicipalityDecision)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Location)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.BasinNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.PieceNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.WaterOfficialSuggestions)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.MunicipalityDecision)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Location)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.BasinNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.PieceNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.WaterOfficialSuggestions)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.MunicipalityDecision)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
+                    <td class="table-text table-product-more-btn">
+                        <div class="dropdown">
+                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
+                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
+                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
+                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

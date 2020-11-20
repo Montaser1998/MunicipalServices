@@ -1,78 +1,77 @@
 ﻿@model MunicipalServices.Data.Receipts
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Receipt";
 }
 
-<h1>Details</h1>
+<div class="content-box mt-2">
+    <div class="content-box-header">
+        <h3 class="content-box__title">Details</h3>
+    </div>
 
-<div>
-    <h4>Receipts</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AmountOfMoneyNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AmountOfMoneyNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AmountOfMoneyText)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AmountOfMoneyText)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Reason)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Reason)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OnAccount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OnAccount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReceivedFrom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReceivedFrom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Currency)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Currency)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Id)
-        </dd>
-    </dl>
+    <div class="content-box-body">
+
+        <div class="content-box-body__row row">
+
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.FullName)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FullName)">
+            </div>
+
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label">@Html.DisplayNameFor(model => model.AmountOfMoneyNumber)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.AmountOfMoneyNumber)">
+            </div>
+
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.AmountOfMoneyText)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.AmountOfMoneyText)">
+            </div>
+
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.Reason)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Reason)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.OnAccount)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.OnAccount)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.ReceivedFrom)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ReceivedFrom)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.Currency)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Currency)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="input-label"> @Html.DisplayNameFor(model => model.User)</label>
+                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="root-space__btn-wrapp col-12">
+        <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Back</a>
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Edit</a>
+    </div>
+    <br />
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<br />
+<div class="card bg-light">
+    <div class="card-header text-center">CashiersChecks</div>
+    <div class="card-body">
+        <p class="text-left">
+            <a asp-action="Create" asp-controller="CashiersChecks" asp-route-id="@Model.ID" asp-route-IsCatchReceipts="false" class="roots-btn btn btn-primary">Create New</a>
+        </p>
+        @await Component.InvokeAsync("CashiersChecksList", new { id = Model.ID, IsCatchReceipts = false })
+    </div>
 </div>

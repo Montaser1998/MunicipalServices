@@ -1,14 +1,14 @@
 ﻿@model MunicipalServices.Data.ComplaintForm
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Complaint Form";
 }
 
 <form asp-action="Edit" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="content-box mt-2">
         <div class="content-box-header">
-            <h3 class="content-box__title">Complaint Form</h3>
+            <h3 class="content-box__title">Edit</h3>
         </div>
         <div class="content-box-body">
             <div class="content-box-body__row row">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label asp-for="ComplaintType" class="control-label"></label>
-                    <input asp-for="ComplaintType" class="form-control" />
+                    <select asp-for="ComplaintType" asp-items="ViewBag.ComplaintType" class="form-control"></select>
                     <span asp-validation-for="ComplaintType" class="text-danger"></span>
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">

@@ -59,9 +59,106 @@
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label asp-for="ConstructionLicenseType" class="control-label"></label>
-                    <input asp-for="ConstructionLicenseType" class="form-control" />
+                    <select asp-for="ConstructionLicenseType" asp-items="ViewBag.ConstructionLicenseType" class="form-control"></select>
                     <span asp-validation-for="ConstructionLicenseType" class="text-danger"></span>
                 </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">رقم الهوية</th>
+                            <th scope="col">العنوان</th>
+                            <th scope="col">رقم الجوال</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">صاحب الرخصة</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameLicenseHolder" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberLicenseHolder" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressLicenseHolder" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberLicenseHolder" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">المكتب المصمم</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameDesigningOffice" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameDesigningOffice" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberDesignerOffice" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressDesignerOffice" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberDesignerOffice" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">المهندس المشرف</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameSupervisingEngineer" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressSupervisingEngineer" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label asp-for="LocalCommitteeNumber" class="control-label"></label>
                     <input asp-for="LocalCommitteeNumber" class="form-control" />

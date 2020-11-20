@@ -50,6 +50,7 @@ namespace MunicipalServices.Controllers
         // GET: ComplaintForms/Create
         public IActionResult Create()
         {
+            ViewData["ComplaintType"] = new SelectList(from ComplaintType d in Enum.GetValues(typeof(ComplaintType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View();
         }
 
@@ -87,6 +88,7 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
+            ViewData["ComplaintType"] = new SelectList(from ComplaintType d in Enum.GetValues(typeof(ComplaintType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View(complaintForm);
         }
 

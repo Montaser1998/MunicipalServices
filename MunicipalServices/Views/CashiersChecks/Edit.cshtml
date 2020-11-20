@@ -1,23 +1,22 @@
 ﻿@model MunicipalServices.Data.CashiersCheck
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Cashiers Check";
 }
 
 <form asp-action="Edit" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CatchReceiptID"/>
+    <input type="hidden" asp-for="ReceiptID"/>
+    <input type="hidden" asp-for="UserID"/>
+    <input type="hidden" asp-for="CreatedDate"/>
     <div class="content-box mt-2">
         <div class="content-box-header">
-            <h3 class="content-box__title">Cashiers Check</h3>
+            <h3 class="content-box__title">Edit</h3>
         </div>
 
         <div class="content-box-body">
             <div class="content-box-body__row row">
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="NumberID" class="control-label"></label>
-                    <input asp-for="NumberID" class="form-control" />
-                    <span asp-validation-for="NumberID" class="text-danger"></span>
-                </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label asp-for="CheckNumber" class="control-label"></label>
                     <input asp-for="CheckNumber" class="form-control" />
@@ -62,7 +61,18 @@
         </div>
         <br />
         <div class="root-space__btn-wrapp col-12">
-            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            @if (Model.CatchReceiptID != null)
+            {
+                <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            }
+            else if (Model.ReceiptID != null)
+            {
+                <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            }
+            else
+            {
+                <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
+            }
             <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Save</button>
         </div>
         <br />

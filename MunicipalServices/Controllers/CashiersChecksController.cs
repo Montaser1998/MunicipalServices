@@ -24,7 +24,7 @@ namespace MunicipalServices.Controllers
         // GET: CashiersChecks
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.CashiersCheck.Include(c => c.CatchReceipt).Include(c => c.Receipt).Include(c => c.User).Where(c=>c.Deleted==false);
+            var applicationDbContext = _context.CashiersCheck.Include(c => c.CatchReceipt).Include(c => c.Receipt).Include(c => c.User).Where(c => c.Deleted == false);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -50,12 +50,18 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: CashiersChecks/Create
-        public IActionResult Create()
+        public IActionResult Create(Guid id, bool IsCatchReceipts)
         {
-            ViewData["CatchReceiptID"] = new SelectList(_context.CatchReceipts, "ID", "FullName");
-            ViewData["ReceiptID"] = new SelectList(_context.Receipts, "ID", "FullName");
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            var model = new Data.CashiersCheck();
+            if (IsCatchReceipts)
+            {
+                model.CatchReceiptID = id; 
+            }
+            else
+            {
+                model.ReceiptID = id;
+            }
+            return View(model);
         }
 
         // POST: CashiersChecks/Create
@@ -63,7 +69,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CatchReceiptID,ReceiptID,NumberID,CheckNumber,AccountNumber,CodeBank,BankName,CodeBranch,BranchName,DateOfTheWorthy,AmountOfMoney,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CashiersCheck cashiersCheck)
+        public async Task<IActionResult> Create([Bind("CatchReceiptID,ReceiptID,CheckNumber,AccountNumber,CodeBank,BankName,CodeBranch,BranchName,DateOfTheWorthy,AmountOfMoney")] CashiersCheck cashiersCheck)
         {
             if (ModelState.IsValid)
             {
@@ -73,17 +79,28 @@ namespace MunicipalServices.Controllers
                 cashiersCheck.UpdatedDate = datetime;
                 cashiersCheck.UserID = usermanager.GetUserId(User);
                 _context.Add(cashiersCheck);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var result = await _context.SaveChangesAsync();
+                if (result > 0)
+                {
+                    if (cashiersCheck.CatchReceiptID != null)
+                    {
+                        return RedirectToAction(nameof(Details), nameof(Data.CatchReceipts), new { id = cashiersCheck.CatchReceiptID });
+                    }
+                    else if (cashiersCheck.ReceiptID != null)
+                    {
+                        return RedirectToAction(nameof(Details), nameof(Data.Receipts), new { id = cashiersCheck.ReceiptID });
+                    }
+                    else
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                }
             }
-            ViewData["CatchReceiptID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", cashiersCheck.CatchReceiptID);
-            ViewData["ReceiptID"] = new SelectList(_context.Receipts, "ID", "FullName", cashiersCheck.ReceiptID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", cashiersCheck.UserID);
             return View(cashiersCheck);
         }
 
         // GET: CashiersChecks/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid? id, Guid? CheckReceiptID, bool IsCatchReceipts)
         {
             if (id == null)
             {
@@ -95,9 +112,18 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
-            ViewData["CatchReceiptID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", cashiersCheck.CatchReceiptID);
-            ViewData["ReceiptID"] = new SelectList(_context.Receipts, "ID", "FullName", cashiersCheck.ReceiptID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", cashiersCheck.UserID);
+
+            if (CheckReceiptID != null && CheckReceiptID != Guid.Empty)
+            {
+                if (IsCatchReceipts)
+                {
+                    cashiersCheck.CatchReceiptID = CheckReceiptID;
+                }
+                else
+                {
+                    cashiersCheck.ReceiptID = CheckReceiptID;
+                }
+            }
             return View(cashiersCheck);
         }
 
@@ -106,7 +132,7 @@ namespace MunicipalServices.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CatchReceiptID,ReceiptID,NumberID,CheckNumber,AccountNumber,CodeBank,BankName,CodeBranch,BranchName,DateOfTheWorthy,AmountOfMoney,ID,CreatedDate,UpdatedDate,UserID,Deleted")] CashiersCheck cashiersCheck)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ID,CatchReceiptID,ReceiptID,CheckNumber,AccountNumber,CodeBank,BankName,CodeBranch,BranchName,DateOfTheWorthy,AmountOfMoney,CreatedDate,UserID")] CashiersCheck cashiersCheck)
         {
             if (id != cashiersCheck.ID)
             {
@@ -119,7 +145,18 @@ namespace MunicipalServices.Controllers
                 {
                     cashiersCheck.UpdatedDate = DateTime.UtcNow;
                     _context.Update(cashiersCheck);
-                    await _context.SaveChangesAsync();
+                    var result = await _context.SaveChangesAsync();
+                    if (result > 0)
+                    {
+                        if (cashiersCheck.CatchReceiptID != null)
+                        {
+                            return RedirectToAction(nameof(Details), nameof(Data.CatchReceipts), new { id = cashiersCheck.CatchReceiptID });
+                        }
+                        else if (cashiersCheck.ReceiptID != null)
+                        {
+                            return RedirectToAction(nameof(Details), nameof(Data.Receipts), new { id = cashiersCheck.ReceiptID });
+                        }
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -134,9 +171,6 @@ namespace MunicipalServices.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CatchReceiptID"] = new SelectList(_context.CatchReceipts, "ID", "FullName", cashiersCheck.CatchReceiptID);
-            ViewData["ReceiptID"] = new SelectList(_context.Receipts, "ID", "FullName", cashiersCheck.ReceiptID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", cashiersCheck.UserID);
             return View(cashiersCheck);
         }
 
@@ -169,7 +203,18 @@ namespace MunicipalServices.Controllers
             var cashiersCheck = await _context.CashiersCheck.FindAsync(id);
             cashiersCheck.Deleted = true;
             _context.CashiersCheck.Update(cashiersCheck);
-            await _context.SaveChangesAsync();
+            var result = await _context.SaveChangesAsync();
+            if (result > 0)
+            {
+                if (cashiersCheck.CatchReceiptID != null)
+                {
+                    return RedirectToAction(nameof(Details), nameof(Data.CatchReceipts), new { id = cashiersCheck.CatchReceiptID });
+                }
+                else if (cashiersCheck.ReceiptID != null)
+                {
+                    return RedirectToAction(nameof(Details), nameof(Data.Receipts), new { id = cashiersCheck.ReceiptID });
+                }
+            }
             return RedirectToAction(nameof(Index));
         }
 

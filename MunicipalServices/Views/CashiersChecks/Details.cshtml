@@ -1,20 +1,16 @@
 ﻿@model MunicipalServices.Data.CashiersCheck
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Cashiers Check";
 }
 
 
 <div class="content-box mt-2">
     <div class="content-box-header">
-        <h3 class="content-box__title">Cashiers Check</h3>
+        <h3 class="content-box__title">Details</h3>
     </div>
     <div class="content-box-body">
         <div class="content-box-body__row row">
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.NumberID)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.NumberID)">
-            </div>
             <div class="form-item-valid form-group col-12 col-md-6">
                 <label class="input-label">@Html.DisplayNameFor(model => model.CheckNumber)</label>
                 <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CheckNumber)">
@@ -63,7 +59,18 @@
     </div>
     <br />
     <div class="root-space__btn-wrapp col-12">
-        <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Back</a>
+        @if (Model.CatchReceiptID != null)
+        {
+            <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary mr-3">Back</a>
+        }
+        else if (Model.ReceiptID != null)
+        {
+            <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary mr-3">Back</a>
+        }
+        else
+        {
+            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Back</a>
+        }
         <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Edit</a>
     </div>
     <br />

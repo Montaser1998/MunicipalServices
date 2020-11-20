@@ -1,13 +1,13 @@
 ﻿@model MunicipalServices.Data.CatchReceipts
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Catch Receipts";
 }
 
 
 <div class="content-box mt-2">
     <div class="content-box-header">
-        <h3 class="content-box__title">Catch Receipts</h3>
+        <h3 class="content-box__title">Details</h3>
     </div>
 
     <div class="content-box-body">
@@ -61,4 +61,14 @@
         <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Edit</a>
     </div>
     <br />
+</div>
+<br />
+<div class="card bg-light">
+    <div class="card-header text-center">CashiersChecks</div>
+    <div class="card-body">
+        <p class="text-left">
+            <a asp-action="Create" asp-controller="CashiersChecks" asp-route-id="@Model.ID" asp-route-IsCatchReceipts="true" class="roots-btn btn btn-primary">Create New</a>
+        </p>
+        @await Component.InvokeAsync("CashiersChecksList", new { id = Model.ID, IsCatchReceipts = true })
+    </div>
 </div>
