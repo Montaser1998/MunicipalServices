@@ -3,19 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MunicipalServices.Data;
 
 namespace MunicipalServices.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201120224255_DbMigration5")]
+    partial class DbMigration5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.10")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -298,51 +300,6 @@ namespace MunicipalServices.Data.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("ComplaintForm");
-                });
-
-            modelBuilder.Entity("MunicipalServices.Data.ConstructionDetails", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConstructionDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ConstructionLicenseID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MeasruingUnit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.Property<double>("UnitPrice")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ConstructionLicenseID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("ConstructionDetails");
                 });
 
             modelBuilder.Entity("MunicipalServices.Data.ConstructionLicense", b =>
@@ -847,19 +804,6 @@ namespace MunicipalServices.Data.Migrations
 
             modelBuilder.Entity("MunicipalServices.Data.ComplaintForm", b =>
                 {
-                    b.HasOne("MunicipalServices.Data.Users", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID");
-                });
-
-            modelBuilder.Entity("MunicipalServices.Data.ConstructionDetails", b =>
-                {
-                    b.HasOne("MunicipalServices.Data.ConstructionLicense", "ConstructionLicense")
-                        .WithMany("ConstructionDetails")
-                        .HasForeignKey("ConstructionLicenseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MunicipalServices.Data.Users", "User")
                         .WithMany()
                         .HasForeignKey("UserID");

@@ -23,7 +23,7 @@ namespace MunicipalServices.Controllers
         // GET: Receipts
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Receipts.Include(r => r.User);
+            var applicationDbContext = _context.Receipts.Include(r => r.User).Where(r => r.Deleted == false);
             return View(await applicationDbContext.ToListAsync());
         }
 

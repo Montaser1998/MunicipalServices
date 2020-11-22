@@ -192,3 +192,13 @@
     </div>
     <br />
 </div>
+<br />
+<div class="card bg-light">
+    <div class="card-header text-center">CashiersChecks</div>
+    <div class="card-body">
+        <p class="text-left">
+            <a asp-action="Create" asp-controller="ConstructionDetails" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Create New</a>
+        </p>
+        @await Component.InvokeAsync("ConstructionDetailsList", new { id = Model.ID })
+    </div>
+</div>

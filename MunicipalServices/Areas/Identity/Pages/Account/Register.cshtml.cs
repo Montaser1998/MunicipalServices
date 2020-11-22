@@ -77,7 +77,7 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new Data.Users { UserName = Input.Email, Email = Input.Email, FullName = Input.FullName };
+                var user = new Data.Users { UserName = Input.Email, Email = Input.Email, FullName = Input.FullName, CreatedDate = DateTime.UtcNow };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

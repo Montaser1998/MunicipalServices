@@ -23,6 +23,7 @@ namespace MunicipalServices.Data
         public DbSet<MunicipalServices.Data.CraftAndIndustryLicense> CraftAndIndustryLicense { get; set; }
         public DbSet<MunicipalServices.Data.WaterMeterSubscriptionRequest> WaterMeterSubscriptionRequest { get; set; }
         public DbSet<MunicipalServices.Data.ConstructionLicense> ConstructionLicense { get; set; }
+        public DbSet<MunicipalServices.Data.ConstructionDetails> ConstructionDetails { get; set; }
         public DbSet<MunicipalServices.Data.LicenseHolderInformation> LicenseHolderInformation { get; set; }
     }
 }

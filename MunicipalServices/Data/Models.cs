@@ -29,6 +29,17 @@ namespace MunicipalServices.Data
         public DateTime Birthday { get; set; }
         [Display(Name = "تاريخ الإنشاء")]
         public DateTime CreatedDate { get; set; }
+        public byte[] ProfileImage { get; set; }
+        public string ProfileImageURL { get; set; }
+        [Display(Name = "الجنس")]
+        public Gender Gender { get; set; }
+    }
+    public enum Gender
+    {
+        [Description("ذكر")]
+        Male,
+        [Description("انثى")]
+        Female
     }
     public class BaseTable
     {
@@ -166,6 +177,7 @@ namespace MunicipalServices.Data
         public Guid? BillOfFeesID { get; set; }
         [Display(Name = "وصل باقي الرسوم")]
         public Guid? BillRemainingFeesID { get; set; }
+        public ICollection<ConstructionDetails> ConstructionDetails { get; set; }
     }
     /// <summary>
     /// جدول معلومات صاحب الرخصة
@@ -199,6 +211,24 @@ namespace MunicipalServices.Data
         [Display(Name = "هاتف المهندس المشرف")]
         public string PhoneNumberSupervisingEngineer { get; set; }
 
+    }
+    /// <summary>
+    ///تفاصيل البناء
+    /// </summary>
+    public class ConstructionDetails : BaseTable
+    {
+        public Guid ConstructionLicenseID { get; set; }
+        public ConstructionLicense ConstructionLicense { get; set; }
+        [Display(Name = "وصف البناء")]
+        public string ConstructionDescription { get; set; }
+        [Display(Name = "الكمية")]
+        public int Amount { get; set; }
+        [Display(Name = "وحدة القياس")]
+        public string MeasruingUnit { get; set; }
+        [Display(Name = "سعر الوحدة")]
+        public double UnitPrice { get; set; }
+        [Display(Name = "المجموع")]
+        public double Total { get; set; }
     }
 
     public enum ConstructionLicenseType
