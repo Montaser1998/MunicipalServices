@@ -6333,7 +6333,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 .forgot-pass__link, .input-label {
     font-family: "Source Sans Pro", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 13px;
     color: #0d55cf;
     letter-spacing: 0;
@@ -6341,7 +6341,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .input-label {
-    font-size: 17px;
+    font-size: 15px;
     color: #404252;
     width: 100%
 }

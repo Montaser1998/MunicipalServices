@@ -49,7 +49,7 @@ namespace MunicipalServices.Controllers
         // GET: Receipts/Create
         public IActionResult Create()
         {
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["CurrencyType"] = new SelectList(from CurrencyType d in Enum.GetValues(typeof(CurrencyType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View();
         }
 
@@ -87,6 +87,7 @@ namespace MunicipalServices.Controllers
             {
                 return NotFound();
             }
+            ViewData["CurrencyType"] = new SelectList(from CurrencyType d in Enum.GetValues(typeof(CurrencyType)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             return View(receipts);
         }
 
