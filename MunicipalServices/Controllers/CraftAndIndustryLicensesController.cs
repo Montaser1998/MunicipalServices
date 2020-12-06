@@ -23,10 +23,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: CraftAndIndustryLicenses
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.CraftAndIndustryLicense.Include(c => c.User).Where(c => c.Deleted == false); 
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: CraftAndIndustryLicenses/Details/5

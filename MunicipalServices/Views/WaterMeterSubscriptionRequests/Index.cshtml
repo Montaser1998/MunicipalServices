@@ -4,7 +4,36 @@
     ViewData["Title"] = "WaterMeterSubscriptionRequests";
 }
 
-<div class="table-responsive">
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Name).Titled("إسم المستفيد");
+        columns.Add(model => model.Location).Titled("الموقع");
+        columns.Add(model => model.PhoneNumber).Titled("رقم الهاتف");
+        columns.Add(model => model.BasinNumber).Titled("رقم الحوض");
+        columns.Add(model => model.PieceNumber).Titled("رقم القطعة");
+        columns.Add(model => model.WaterOfficialSuggestions).Titled("إقتراحات مسؤول المياه");
+        columns.Add(model => model.MunicipalityDecision).Titled("قرار البلدية");
+        columns.Add(model => model.CreatedDate).Titled("تاريخ الإنشاء");
+        columns.Add(model => model.UpdatedDate).Titled("اخر تعديل");
+        columns.Add(model => model.User.FullName).Titled("تم بواسطة");
+        columns.Add(model => $"<div class=\"dropdown\">" +
+        $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +
+        $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
+        $"<a class=\"dropdown-item\" href=\"WaterMeterSubscriptionRequests/edit/{model.ID}\">تعديل</a>" +
+        $"<a class=\"dropdown-item\" href=\"WaterMeterSubscriptionRequests/details/{model.ID}\">تفاصيل</a>" +
+        $"<a class=\"dropdown-item\" href=\"WaterMeterSubscriptionRequests/delete/{model.ID}\">حذف</a>" +
+        $"</div></div>").Encoded(false);
+    })
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+
+@*<div class="table-responsive">
     <table class="roots-table table borderless" cellspacing="0">
         <thead>
             <tr class="table-row-thead">
@@ -45,4 +74,4 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@

@@ -22,10 +22,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: ConstructionDetails
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.ConstructionDetails.Include(c => c.ConstructionLicense).Include(c => c.User).Where(c => c.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: ConstructionDetails/Details/5

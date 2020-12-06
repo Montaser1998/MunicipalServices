@@ -4,7 +4,34 @@
     ViewData["Title"] = "ConstructionDetails";
 }
 
-<div class="table-responsive">
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.ConstructionDescription).Titled("وصف البناء");
+        columns.Add(model => model.Amount).Titled("الكمية");
+        columns.Add(model => model.MeasruingUnit).Titled("وحدة القياس");
+        columns.Add(model => model.UnitPrice).Titled("سعر الوحدة");
+        columns.Add(model => model.Total).Titled("المجموع");
+        columns.Add(model => model.CreatedDate).Titled("تاريخ الإنشاء");
+        columns.Add(model => model.UpdatedDate).Titled("اخر تعديل");
+        columns.Add(model => model.User.FullName).Titled("تم بواسطة");
+        columns.Add(model => $"<div class=\"dropdown\">" +
+        $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +
+        $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionDetails/edit/{model.ID}\">تعديل</a>" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionDetails/details/{model.ID}\">تفاصيل</a>" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionDetails/delete/{model.ID}\">حذف</a>" +
+        $"</div></div>").Encoded(false);
+    })
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+
+@*<div class="table-responsive">
     <table class="roots-table table borderless" cellspacing="0">
         <thead>
             <tr class="table-row-thead">
@@ -45,4 +72,4 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@

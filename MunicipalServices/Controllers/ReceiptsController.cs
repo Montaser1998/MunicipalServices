@@ -21,10 +21,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: Receipts
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.Receipts.Include(r => r.User).Where(r => r.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: Receipts/Details/5

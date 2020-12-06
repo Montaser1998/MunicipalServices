@@ -22,10 +22,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: ComplaintForms
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.ComplaintForm.Include(c => c.User).Where(c => c.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: ComplaintForms/Details/5

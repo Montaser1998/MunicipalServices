@@ -18,12 +18,12 @@ namespace MunicipalServices.Component
         {
             db = context;
         }
-        public async Task<IViewComponentResult> InvokeAsync(Guid id, bool IsCatchReceipts)
+        public IViewComponentResult InvokeAsync(Guid id, bool IsCatchReceipts)
         {
-            var items = await GetItemsAsync(id, IsCatchReceipts);
+            var items = GetItemsAsync(id, IsCatchReceipts);
             return View(items);
         }
-        private async Task<List<Data.CashiersCheck>> GetItemsAsync(Guid id, bool IsCatchReceipts)
+        private IQueryable<Data.CashiersCheck> GetItemsAsync(Guid id, bool IsCatchReceipts)
         {
             var model = db.CashiersCheck.Include(u => u.User).AsQueryable();
             if (IsCatchReceipts)
@@ -34,7 +34,7 @@ namespace MunicipalServices.Component
             {
                 model = model.Where(c => c.Deleted == false && c.ReceiptID == id);
             }
-            return await model.OrderBy(c=>c.CreatedDate).ToListAsync();
+            return model.OrderBy(c=>c.CreatedDate);
         }
     }
 

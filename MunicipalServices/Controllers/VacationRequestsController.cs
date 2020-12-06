@@ -21,10 +21,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: VacationRequests
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.VacationRequest.Include(v => v.User).Where(v => v.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: VacationRequests/Details/5

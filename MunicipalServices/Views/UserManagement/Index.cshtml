@@ -3,12 +3,37 @@
 @{
     ViewData["Title"] = "UserManagement";
 }
-<style>
-    #btn_create {
-        display: none;
-    }
-</style>
-<table class="roots-table table borderless" cellspacing="0">
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.FullName).Titled("الاسم الرباعي");
+        columns.Add(model => model.Email).Titled("البريد الإلكتروني");
+        columns.Add(model => model.PhoneNumber).Titled("رقم الهاتف");
+        columns.Add(model => model.Gender).Titled("الجنس");
+        columns.Add(model => model.EmailConfirmed).Titled("تم تأكيد البريد الإلكتروني");
+        columns.Add(model => model.CreatedDate).Titled("تاريخ الإنشاء");
+        columns.Add(model => model.Deleted).Titled("محذوف");
+        columns.Add(model => $"<div class=\"dropdown\">" +
+        $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +
+        $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
+        //$"<a class=\"dropdown-item\" href=\"UserManagement/edit/{model.Id}\">Edit</a>" +
+        $"<a class=\"dropdown-item\" href=\"UserManagement/details/{model.Id}\">تفاصيل</a>" +
+        $"<form asp-action=\"UserManagement/Delete/{model.Id}\">" +
+        $"<a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#deleteConfirmModal\">حذف</a>" +
+        $"</form>" +
+        $"</div></div>").Encoded(false);
+    })
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+
+
+@*<table class="roots-table table borderless" cellspacing="0">
     <thead>
         <tr class="table-row-thead">
             <th scope="col">@Html.DisplayName("ImageProfile")</th>
@@ -59,4 +84,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

@@ -31,10 +31,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: UserManagement
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var users = _context.Users;
-            return View(await users.ToListAsync());
+            return View(users);
         }
 
         // GET: UserManagement/Details/5

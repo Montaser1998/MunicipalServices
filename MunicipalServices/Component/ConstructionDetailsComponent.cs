@@ -18,15 +18,15 @@ namespace MunicipalServices.Component
         {
             db = context;
         }
-        public async Task<IViewComponentResult> InvokeAsync(Guid id)
+        public IViewComponentResult InvokeAsync(Guid id)
         {
-            var items = await GetItemsAsync(id);
+            var items = GetItemsAsync(id);
             return View(items);
         }
-        private async Task<List<Data.ConstructionDetails>> GetItemsAsync(Guid id)
+        private IQueryable<Data.ConstructionDetails> GetItemsAsync(Guid id)
         {
             var model = db.ConstructionDetails.Include(u => u.User).Where(c=>c.ConstructionLicenseID == id).OrderBy(c => c.CreatedDate);
-            return await model.ToListAsync();
+            return model;
         }
     }
 

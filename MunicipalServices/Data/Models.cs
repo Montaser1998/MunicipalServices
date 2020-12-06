@@ -143,7 +143,7 @@ namespace MunicipalServices.Data
         public DateTime DateOfIssuance { get; set; }
         [Display(Name = "رقم الملف ")]
         public int FileNumber { get; set; }
-        [Display(Name = "صدق بجلسة رقم ")]
+        [Display(Name = "صدق بجلسة رقم")]
         public int ValidatedBySessionNumber { get; set; }
         [Display(Name = "اسم البلدة")]
         public string TownName { get; set; }

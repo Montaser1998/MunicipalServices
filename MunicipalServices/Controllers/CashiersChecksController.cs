@@ -22,10 +22,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: CashiersChecks
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.CashiersCheck.Include(c => c.CatchReceipt).Include(c => c.Receipt).Include(c => c.User).Where(c => c.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: CashiersChecks/Details/5

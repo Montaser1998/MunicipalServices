@@ -4,7 +4,36 @@
     ViewData["Title"] = "CraftAndIndustryLicenses";
 }
 
-<div class="table-responsive">
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.LicenseHolderName).Titled("اسم حامل الرخصة");
+        columns.Add(model => model.IdentificationNumber).Titled("رقم الهوية");
+        columns.Add(model => model.CraftOrIndustryType).Titled("نوع الحرفة او الصناعة");
+        columns.Add(model => model.ClassifiedInTail).Titled("صنفها في الذيل");
+        columns.Add(model => model.Address).Titled("عنوان المحل");
+        columns.Add(model => model.LicenseFee).Titled("رسوم الرخصة");
+        columns.Add(model => model.VoucherNumber).Titled("رقم الوصل");
+        columns.Add(model => model.User.FullName).Titled("تم بواسطة");
+        columns.Add(model => $"<div class=\"dropdown\">" +
+        $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +
+        $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
+        $"<a class=\"dropdown-item\" href=\"CraftAndIndustryLicenses/edit/{model.ID}\">تعديل</a>" +
+        $"<a class=\"dropdown-item\" href=\"CraftAndIndustryLicenses/details/{model.ID}\">تفاصيل</a>" +
+        $"<a class=\"dropdown-item\" href=\"CraftAndIndustryLicenses/delete/{model.ID}\">حذف</a>" +
+        $"</div></div>").Encoded(false);
+    })
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+
+
+
+@*<div class="table-responsive">
     <table class="roots-table table borderless" cellspacing="0">
         <thead>
             <tr class="table-row-thead">
@@ -42,5 +71,5 @@
                 </tr>
             }
         </tbody>
-    </table>
+    </table>*@
 </div>

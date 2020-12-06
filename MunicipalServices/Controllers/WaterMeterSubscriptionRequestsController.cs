@@ -22,10 +22,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: WaterMeterSubscriptionRequests
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.WaterMeterSubscriptionRequest.Include(w => w.User).Where(w => w.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: WaterMeterSubscriptionRequests/Details/5

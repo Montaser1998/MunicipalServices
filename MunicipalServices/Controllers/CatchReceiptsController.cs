@@ -22,10 +22,10 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: CatchReceipts
-        public async Task<IActionResult> Index()
+        public ViewResult Index()
         {
             var applicationDbContext = _context.CatchReceipts.Include(c => c.User).Where(c=>c.Deleted == false);
-            return View(await applicationDbContext.ToListAsync());
+            return View(applicationDbContext);
         }
 
         // GET: CatchReceipts/Details/5

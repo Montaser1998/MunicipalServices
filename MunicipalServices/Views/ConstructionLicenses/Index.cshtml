@@ -4,7 +4,41 @@
     ViewData["Title"] = "ConstructionLicenses";
 }
 
-<div class="table-responsive">
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.DateOfIssuance).Titled("تاريخ اصدار الترخيص");
+        columns.Add(model => model.FileNumber).Titled("رقم الملف");
+        columns.Add(model => model.ValidatedBySessionNumber).Titled("صدق بجلسة رقم");
+        columns.Add(model => model.TownName).Titled("اسم البلدة");
+        columns.Add(model => model.District).Titled("اسم الحي");
+        columns.Add(model => model.Street).Titled("الشارع");
+        columns.Add(model => model.Basin).Titled("الحوض");
+        columns.Add(model => model.ConstructionUse).Titled("استعمال البناء");
+        columns.Add(model => model.ConstructionLicenseType).Titled("نوع البناء");
+        columns.Add(model => model.LocalCommitteeNumber).Titled("رقم اللجنة المحلية");
+        columns.Add(model => model.DateApprovalLocalCommittee).Titled("تاريخ مصادقة اللجنة المحلية");
+        columns.Add(model => model.LicenseDescription).Titled("وصف الرخصة");
+        columns.Add(model => model.FeeDate).Titled("تاريخ الرسوم (غير مستردة)");
+        columns.Add(model => model.RemainingFeesDate).Titled("تاريخ باقي الرسوم");
+        columns.Add(model => model.User.FullName).Titled("تم بواسطة");
+        columns.Add(model => $"<div class=\"dropdown\">" +
+        $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +
+        $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionLicenses/edit/{model.ID}\">تعديل</a>" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionLicenses/details/{model.ID}\">تفاصيل</a>" +
+        $"<a class=\"dropdown-item\" href=\"ConstructionLicenses/delete/{model.ID}\">حذف</a>" +
+        $"</div></div>").Encoded(false);
+    })
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
+
+@*<div class="table-responsive">
     <table class="roots-table table borderless" cellspacing="0">
         <thead>
             <tr class="table-row-thead">
@@ -59,4 +93,4 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@
