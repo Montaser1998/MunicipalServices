@@ -81,10 +81,10 @@
 <body>
     <main>
         <div class="wrapper m-0">
-            <header class="header bg-primary d-flex align-items-center justify-content-between">
+            <header class="header bg-primary d-flex align-items-center justify-content-between dir-rtl">
 
                 <div class="sidebar-header bg-primary border-right pl-4 d-flex align-items-center">
-                    <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">خدمات بلدية العوجا</a>
+                    <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">بلدية العوجا</a>
                 </div>
                 <div class="header-sub-cnt">
                     <div class="header-info d-flex align-items-center">
@@ -97,7 +97,23 @@
                 </div>
 
             </header>
-            <nav id="sidebar" class="sidebar" style="float: right;">
+            <div class="roots-content sidebar-is-hidden d-flex flex-column" style="float: left;">
+
+                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Forgot your password?") || ViewData["Title"].ToString().Contains("Log in") || ViewData["Title"].ToString().Contains("Personal Data") || ViewData["Title"].ToString().Contains("Two-factor authentication (2FA)") || ViewData["Title"].ToString().Contains("Change password") || ViewData["Title"].ToString().Contains("Manage Email") || ViewData["Title"].ToString().Contains("Confirm email") || ViewData["Title"].ToString().Contains("Register") || ViewData["Title"].ToString().Contains("Profile") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
+                {
+                    <div class="tabs-wrapper">
+                        <div class="tabs-buttons">
+                            <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
+                                Create
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
+                    @RenderBody()
+                </div>
+            </div>
+            <nav id="sidebar" class="sidebar d-flex dir-rtl">
 
                 <ul class="sidebar__list list-unstyled border-right m-0 pt-5">
                     <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
@@ -107,8 +123,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="Home" asp-action="Index">Home</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="Home" asp-action="Index">الرئيسية</a>
                         </div>
 
                     </li>
@@ -119,8 +135,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="CatchReceipts" asp-action="Index">Catch Receipts</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="CatchReceipts" asp-action="Index">سند القبض</a>
                         </div>
 
                     </li>
@@ -131,8 +147,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="Receipts" asp-action="Index">Receipts</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="Receipts" asp-action="Index">سند الصرف</a>
                         </div>
 
                     </li>
@@ -143,8 +159,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="ComplaintForms" asp-action="Index">Complaint Forms</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="ComplaintForms" asp-action="Index">الشكاوي</a>
                         </div>
 
                     </li>
@@ -155,8 +171,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="ConstructionLicenses" asp-action="Index">Construction Licenses</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="ConstructionLicenses" asp-action="Index">رخصة البناء</a>
                         </div>
 
                     </li>
@@ -166,8 +182,8 @@
                                 <path d="M1.9,3.8 L0,3.8 L0,17.1 C0,18.145 0.855,19 1.9,19 L15.2,19 L15.2,17.1 L1.9,17.1 L1.9,3.8 Z M17.1,0 L5.7,0 C4.655,0 3.8,0.855 3.8,1.9 L3.8,13.3 C3.8,14.345 4.655,15.2 5.7,15.2 L17.1,15.2 C18.145,15.2 19,14.345 19,13.3 L19,1.9 C19,0.855 18.145,0 17.1,0 Z M16.15,8.55 L6.65,8.55 L6.65,6.65 L16.15,6.65 L16.15,8.55 Z M12.35,12.35 L6.65,12.35 L6.65,10.45 L12.35,10.45 L12.35,12.35 Z M16.15,4.75 L6.65,4.75 L6.65,2.85 L16.15,2.85 L16.15,4.75 Z"></path>
                             </svg>
                         </div>
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="CraftAndIndustryLicenses" asp-action="Index">Craft and Industry Licenses</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="CraftAndIndustryLicenses" asp-action="Index">شهادة الحرف والصناعة</a>
                         </div>
                     </li>
                     <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
@@ -177,18 +193,18 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="VacationRequests" asp-action="Index">Vacation Requests</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="VacationRequests" asp-action="Index">طلب اجازة</a>
                         </div>
                     </li>
                     <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
                         <div class="sidebar__list-pic">
-                            <svg fill="#0A1F44" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <path d="M8,11.0623382 C8,10.475625 8.49590156,10 9.10838294,10 L16.8916171,10 C17.5037601,10 18,10.4764786 18,11.0623382 L18,16.9376618 C18,17.524375 17.5040984,18 16.8916171,18 L9.10838294,18 C8.49623994,18 8,17.5235214 8,16.9376618 L8,11.0623382 Z M9,11.2733986 L9,16.7266014 C9,16.8746815 9.12747537,17 9.28472423,17 L16.7152758,17 C16.8743391,17 17,16.8775953 17,16.7266014 L17,11.2733986 C17,11.1253185 16.8725246,11 16.7152758,11 L9.28472423,11 C9.12566091,11 9,11.1224047 9,11.2733986 Z M0,11.0623382 C0,10.475625 0.526137733,10 1.17164262,10 L5.82835738,10 C6.47543773,10 7,10.4764786 7,11.0623382 L7,16.9376618 C7,17.524375 6.47386227,18 5.82835738,18 L1.17164262,18 C0.524562267,18 0,17.5235214 0,16.9376618 L0,11.0623382 Z M1,11.2733986 L1,16.7266014 C1,16.8746815 1.140033,17 1.31277237,17 L5.68722763,17 C5.855752,17 6,16.8775953 6,16.7266014 L6,11.2733986 C6,11.1253185 5.859967,11 5.68722763,11 L1.31277237,11 C1.144248,11 1,11.1224047 1,11.2733986 Z M12,1.06233823 C12,0.475625029 12.4910052,0 13.0865547,0 L16.9134453,0 C17.5135329,0 18,0.476478576 18,1.06233823 L18,6.93766176 C18,7.52437499 17.5089948,8 16.9134453,8 L13.0865547,8 C12.4864671,8 12,7.52352144 12,6.93766176 L12,1.06233823 Z M13,1.27339864 L13,6.72660138 C13,6.87468149 13.1287943,7 13.2876701,7 L16.7123299,7 C16.8669129,7 17,6.87759525 17,6.72660138 L17,1.27339864 C17,1.12531853 16.8712057,1 16.7123299,1 L13.2876701,1 C13.1330871,1 13,1.12240474 13,1.27339864 Z M0,1.06233823 C0,0.475625029 0.515798916,0 1.15640215,0 L9.84359785,0 C10.4822611,0 11,0.476478576 11,1.06233823 L11,6.93766176 C11,7.52437499 10.4842011,8 9.84359785,8 L1.15640215,8 C0.517738853,8 0,7.52352144 0,6.93766176 L0,1.06233823 Z M1,1.27339864 L1,6.72660138 C1,6.87468149 1.11917029,7 1.26617429,7 L8.73382571,7 C8.88070261,7 9,6.87759525 9,6.72660138 L9,1.27339864 C9,1.12531853 8.88082971,1 8.73382571,1 L1.26617429,1 C1.11929739,1 1,1.12240474 1,1.27339864 Z"></path>
+                            <svg width="18px" height="18px" fill="#2F4160" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <path d="M16,0 L1.99,0 C0.88,0 0.01,0.9 0.01,2 L0,16 C0,17.1 0.88,18 1.99,18 L16,18 C17.1,18 18,17.1 18,16 L18,2 C18,0.9 17.1,0 16,0 Z M16,12 L12,12 C12,13.66 10.65,15 9,15 C7.35,15 6,13.66 6,12 L1.99,12 L1.99,2 L16,2 L16,12 Z M13,7 L11,7 L11,4 L7,4 L7,7 L5,7 L9,11 L13,7 Z"></path>
                             </svg>
                         </div>
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="WaterMeterSubscriptionRequests" asp-action="Index">Water Meter Subscription Requests</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="WaterMeterSubscriptionRequests" asp-action="Index">طلب اشتراك عداد المياه</a>
                         </div>
                     </li>
                     <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
@@ -198,8 +214,8 @@
                             </svg>
                         </div>
 
-                        <div class="sidebar__list-content ml-3">
-                            <a class="sidebar-item-link" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                        <div class="sidebar__list-content ml-3 text-right pr-3">
+                            <a class="sidebar-item-link" asp-controller="UserManagement" asp-action="Index">ادارة الموظفين</a>
 
                         </div>
                     </li>
@@ -245,22 +261,6 @@
 
                 <button class="sidebar__hide-btn" id="sidebar-hide-btn">Hide sidebar</button>
             </nav>
-            <div class="roots-content sidebar-is-hidden d-flex flex-column" style="float: left;">
-
-                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Forgot your password?") || ViewData["Title"].ToString().Contains("Log in") || ViewData["Title"].ToString().Contains("Personal Data") || ViewData["Title"].ToString().Contains("Two-factor authentication (2FA)") || ViewData["Title"].ToString().Contains("Change password") || ViewData["Title"].ToString().Contains("Manage Email") || ViewData["Title"].ToString().Contains("Confirm email") || ViewData["Title"].ToString().Contains("Register") || ViewData["Title"].ToString().Contains("Profile") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
-                {
-                    <div class="tabs-wrapper">
-                        <div class="tabs-buttons">
-                            <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
-                                Create
-                            </a>
-                        </div>
-                    </div>
-                }
-                <div class="roots-content-wrapper my-4 container-fluid" style="min-height:600px">
-                    @RenderBody()
-                </div>
-            </div>
         </div>
     </main>
     <footer class="border-top footer text-muted">
