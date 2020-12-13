@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>@ViewData["Title"] - خدمات بلدية العوجا</title>
+    <title>@ViewData["Title"] - خدمات البلدية</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#fff">
     <style>
@@ -84,7 +84,7 @@
             <header class="header bg-primary d-flex align-items-center justify-content-between dir-rtl">
 
                 <div class="sidebar-header bg-primary border-right pl-4 d-flex align-items-center">
-                    <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">بلدية العوجا</a>
+                    <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">خدمات البلدية</a>
                 </div>
                 <div class="header-sub-cnt">
                     <div class="header-info d-flex align-items-center">
@@ -99,7 +99,7 @@
             </header>
             <div class="roots-content sidebar-is-hidden d-flex flex-column" style="float: left;">
 
-                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Forgot your password?") || ViewData["Title"].ToString().Contains("Log in") || ViewData["Title"].ToString().Contains("Personal Data") || ViewData["Title"].ToString().Contains("Two-factor authentication (2FA)") || ViewData["Title"].ToString().Contains("Change password") || ViewData["Title"].ToString().Contains("Manage Email") || ViewData["Title"].ToString().Contains("Confirm email") || ViewData["Title"].ToString().Contains("Register") || ViewData["Title"].ToString().Contains("Profile") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
+                @if (ViewData["Title"] as string == this.ViewContext.RouteData.Values[ViewData["Title"].ToString().Contains("Forgot your password?") || ViewData["Title"].ToString().Contains("Log in") || ViewData["Title"].ToString().Contains("User Roles") || ViewData["Title"].ToString().Contains("Personal Data") || ViewData["Title"].ToString().Contains("Two-factor authentication (2FA)") || ViewData["Title"].ToString().Contains("Change password") || ViewData["Title"].ToString().Contains("Manage Email") || ViewData["Title"].ToString().Contains("Confirm email") || ViewData["Title"].ToString().Contains("Register") || ViewData["Title"].ToString().Contains("Profile") || ViewData["Title"].ToString().Contains("ForgotPassword") ? "page" : "controller"].ToString())
                 {
                     <div class="tabs-wrapper">
                         <div class="tabs-buttons">
@@ -265,7 +265,7 @@
     </main>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - خدمات بلدية العوجا
+            &copy; @DateTime.Now.Year - خدمات البلدية
         </div>
     </footer>
     <div class="roots-modal modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
