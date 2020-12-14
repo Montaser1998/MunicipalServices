@@ -37,7 +37,7 @@ namespace MunicipalServices.Data
                     await userManager.AddToRoleAsync(defaultUser, "الادارة");
                     await userManager.AddToRoleAsync(defaultUser, "قسم المالية");
                     await userManager.AddToRoleAsync(defaultUser, "قسم الهندسة");
-                    await userManager.AddToRoleAsync(defaultUser, "قسم المياة");
+                    await userManager.AddToRoleAsync(defaultUser, "قسم المياه");
                 }
 
             }
@@ -102,7 +102,7 @@ namespace MunicipalServices.Data
                 if (user == null)
                 {
                     await userManager.CreateAsync(defaultUser, "123456");
-                    await userManager.AddToRoleAsync(defaultUser, "قسم المياة");
+                    await userManager.AddToRoleAsync(defaultUser, "قسم المياه");
                 }
 
             }

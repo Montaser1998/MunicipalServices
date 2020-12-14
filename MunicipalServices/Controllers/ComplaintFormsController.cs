@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,6 +11,7 @@ using MunicipalServices.Data;
 
 namespace MunicipalServices.Controllers
 {
+    [Authorize(Roles = "الادارة")]
     public class ComplaintFormsController : Controller
     {
         private readonly ApplicationDbContext _context;

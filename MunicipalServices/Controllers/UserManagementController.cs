@@ -12,9 +12,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MunicipalServices.Controllers
 {
+    [Authorize(Roles = "الادارة")]
+
     public class UserManagementController : Controller
     {
         private readonly ApplicationDbContext _context;
