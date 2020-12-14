@@ -1,64 +1,67 @@
 ﻿@model MunicipalServices.Data.Users
 
 @{
-    ViewData["Title"] = "User Management";
+    ViewData["Title"] = "إدارة الموظفين";
 }
 
-<div class="content-box mt-2">
-    <div class="content-box-header">
-        <h3 class="content-box__title">Delete</h3>
-    </div>
-    <div class="content-box-body">
-        <div class="form-item-valid form-group col-12 col-md-6">
-            <div class="table-img-box">
-                <img src="@Model.ProfileImageURL" alt="Person Image" height="150" width="150" />
-            </div>
-        </div>
-        <div class="content-box-body__row row">
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.FullName)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FullName)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Gender)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Gender)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label">@Html.DisplayNameFor(model => model.PhoneNumber)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Email)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Email)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Birthday)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Birthday)">
-            </div>
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title">حذف</h3>
+        </div>
+        <div class="content-box-body">
             <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+                <div class="table-img-box">
+                    <img src="@Model.ProfileImageURL" alt="Person Image" height="150" width="150" />
+                </div>
+            </div>
+            <div class="content-box-body__row row">
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label"> @Html.DisplayNameFor(model => model.FullName)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FullName)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label"> @Html.DisplayNameFor(model => model.Gender)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Gender)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label">@Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label"> @Html.DisplayNameFor(model => model.Email)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Email)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label"> @Html.DisplayNameFor(model => model.Birthday)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Birthday)">
+                </div>
+
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+                </div>
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="form-check-label" style="position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                    <input class="form-check-input" disabled="disabled" asp-for="EmailConfirmed" /> @Html.DisplayNameFor(model => model.EmailConfirmed)
+                </label>
+            </div>
+            <div class="form-item-valid form-group col-12 col-md-6">
+                <label class="form-check-label" style="position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
+                    <input class="form-check-input" disabled="disabled" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
+                </label>
             </div>
         </div>
-        <div class="form-item-valid form-group col-12 col-md-6">
-            <label class="form-check-label" style="position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
-                <input class="form-check-input" disabled="disabled" asp-for="EmailConfirmed" /> @Html.DisplayNameFor(model => model.EmailConfirmed)
-            </label>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <a asp-action="Index" class="roots-btn btn btn-primary ml-3">إلغاء</a>
+                <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">حذف</button>
+            </form>
         </div>
-        <div class="form-item-valid form-group col-12 col-md-6">
-            <label class="form-check-label" style="position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
-                <input class="form-check-input" disabled="disabled" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
-            </label>
-        </div>
+        <br />
     </div>
-    <br />
-    <div class="root-space__btn-wrapp" style="margin-left:15px;">
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <a asp-action="Index" class="roots-btn btn btn-primary mr-3">Cancel</a>
-            <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
-        </form>
     </div>
-    <br />
-</div>

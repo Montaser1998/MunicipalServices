@@ -3,30 +3,33 @@
 @{
     ViewData["Title"] = "User Roles";
 }
-<form method="post">
-    <div class="card">
-        <div class="card-header">
-            <h2>Manage User Roles</h2>
-            Add/Remove Roles for User / @Model.UserId / @Model.UserName.
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
+
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h2>Manage User Roles</h2>
+                Add/Remove Roles for User / @Model.UserId / @Model.UserName.
+            </div>
+            <div class="card-body">
+                <input hidden asp-for="@Model.UserId" />
+                @for (int i = 0; i < Model.UserRoles.Count; i++)
+                {
+                    <div class="form-check m-1">
+                        <input type="hidden" asp-for="@Model.UserRoles[i].RoleId" />
+                        <input type="hidden" asp-for="@Model.UserRoles[i].RoleName" />
+                        <input asp-for="@Model.UserRoles[i].Selected" class="form-check-input" />
+                        <label class="form-check-label text-right" asp-for="@Model.UserRoles[i].Selected">
+                            @Model.UserRoles[i].RoleName
+                        </label>
+                    </div>
+                }
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Update" asp-route-model="@Model.UserRoles" class="btn btn-primary"
+                       style="width:auto" />
+            </div>
         </div>
-        <div class="card-body">
-            <input hidden asp-for="@Model.UserId" />
-            @for (int i = 0; i < Model.UserRoles.Count; i++)
-            {
-                <div class="form-check m-1">
-                    <input type="hidden" asp-for="@Model.UserRoles[i].RoleId" />
-                    <input type="hidden" asp-for="@Model.UserRoles[i].RoleName" />
-                    <input asp-for="@Model.UserRoles[i].Selected" class="form-check-input" />
-                    <label class="form-check-label text-right" asp-for="@Model.UserRoles[i].Selected">
-                        @Model.UserRoles[i].RoleName
-                    </label>
-                </div>
-            }
-            <div asp-validation-summary="All" class="text-danger"></div>
-        </div>
-        <div class="card-footer">
-            <input type="submit" value="Update" asp-route-model="@Model.UserRoles" class="btn btn-primary"
-                   style="width:auto" />
-        </div>
+    </form>
     </div>
-</form>

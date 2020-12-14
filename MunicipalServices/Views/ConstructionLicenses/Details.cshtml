@@ -1,204 +1,206 @@
 ﻿@model MunicipalServices.Data.ConstructionLicense
 
 @{
-    ViewData["Title"] = "Construction License";
+    ViewData["Title"] = "شهادة البناء";
 }
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
-<div class="content-box mt-2">
-    <div class="content-box-header">
-        <h3 class="content-box__title">Details</h3>
-    </div>
-    <div class="content-box-body">
-        <div class="content-box-body__row row">
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.DateOfIssuance)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DateOfIssuance)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label">@Html.DisplayNameFor(model => model.FileNumber)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FileNumber)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.ValidatedBySessionNumber)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ValidatedBySessionNumber)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.TownName)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.TownName)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.District)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.District)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Street)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Street)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Basin)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Basin)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Part)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Part)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.ConstructionUse)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ConstructionUse)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.ConstructionLicenseType)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ConstructionLicenseType)">
-            </div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">الاسم</th>
-                        <th scope="col">رقم الهوية</th>
-                        <th scope="col">العنوان</th>
-                        <th scope="col">رقم الجوال</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">صاحب الرخصة</th>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.NameLicenseHolder" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.NameLicenseHolder" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.IdentityNumberLicenseHolder" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.IdentityNumberLicenseHolder" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.AddressLicenseHolder" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.AddressLicenseHolder" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.PhoneNumberLicenseHolder" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.PhoneNumberLicenseHolder" class="text-danger"></span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">المكتب المصمم</th>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.NameDesigningOffice" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.NameDesigningOffice" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.IdentityNumberDesignerOffice" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.IdentityNumberDesignerOffice" class="text-danger"></span>
-                            </div>
-                        </td>
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title text-right">تفاصيل</h3>
+        </div>
+        <div class="content-box-body">
+            <div class="content-box-body__row row">
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.DateOfIssuance)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DateOfIssuance)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right">@Html.DisplayNameFor(model => model.FileNumber)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FileNumber)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.ValidatedBySessionNumber)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ValidatedBySessionNumber)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.TownName)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.TownName)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.District)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.District)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Street)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Street)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Basin)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Basin)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Part)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Part)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.ConstructionUse)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ConstructionUse)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.ConstructionLicenseType)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.ConstructionLicenseType)">
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">رقم الهوية</th>
+                            <th scope="col">العنوان</th>
+                            <th scope="col">رقم الجوال</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">صاحب الرخصة</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameLicenseHolder" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberLicenseHolder" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressLicenseHolder" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberLicenseHolder" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberLicenseHolder" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">المكتب المصمم</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameDesigningOffice" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameDesigningOffice" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberDesignerOffice" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
 
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.AddressDesignerOffice" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.AddressDesignerOffice" class="text-danger"></span>
-                            </div>
-                        </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressDesignerOffice" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
 
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.PhoneNumberDesignerOffice" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.PhoneNumberDesignerOffice" class="text-danger"></span>
-                            </div>
-                        </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberDesignerOffice" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberDesignerOffice" class="text-danger"></span>
+                                </div>
+                            </td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">المهندس المشرف</th>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.NameSupervisingEngineer" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.NameSupervisingEngineer" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.AddressSupervisingEngineer" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.AddressSupervisingEngineer" class="text-danger"></span>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-item-valid form-group col-12 col-md-9">
-                                <input asp-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" disabled="disabled" class="form-control" />
-                                <span asp-validation-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" class="text-danger"></span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.LocalCommitteeNumber)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LocalCommitteeNumber)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DateApprovalLocalCommittee)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.LicenseDescription)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LicenseDescription)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.LicenseConditions)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LicenseConditions)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.FeeDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FeeDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.RemainingFeesDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.RemainingFeesDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.User)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+                        </tr>
+                        <tr>
+                            <th scope="row">المهندس المشرف</th>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.NameSupervisingEngineer" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.NameSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.IdentityNumberSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.AddressSupervisingEngineer" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.AddressSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-item-valid form-group col-12 col-md-9">
+                                    <input asp-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" disabled="disabled" class="form-control" />
+                                    <span asp-validation-for="LicenseHolderInformation.PhoneNumberSupervisingEngineer" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.LocalCommitteeNumber)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LocalCommitteeNumber)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DateApprovalLocalCommittee)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.LicenseDescription)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LicenseDescription)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.LicenseConditions)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.LicenseConditions)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.FeeDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.FeeDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.RemainingFeesDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.RemainingFeesDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.User)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+                </div>
             </div>
         </div>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">رجوع</a>
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">تعديل</a>
+        </div>
+        <br />
     </div>
     <br />
-    <div class="root-space__btn-wrapp col-12">
-        <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Back</a>
-        <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Edit</a>
+    <div class="card bg-light">
+        <div class="card-header text-center">تفاصيل البناء</div>
+        <div class="card-body">
+            <p class="text-left">
+                <a asp-action="Create" asp-controller="ConstructionDetails" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">إضافة جديد</a>
+            </p>
+            @await Component.InvokeAsync("ConstructionDetailsList", new { id = Model.ID })
+        </div>
     </div>
-    <br />
-</div>
-<br />
-<div class="card bg-light">
-    <div class="card-header text-center">CashiersChecks</div>
-    <div class="card-body">
-        <p class="text-left">
-            <a asp-action="Create" asp-controller="ConstructionDetails" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">Create New</a>
-        </p>
-        @await Component.InvokeAsync("ConstructionDetailsList", new { id = Model.ID })
     </div>
-</div>

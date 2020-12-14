@@ -1,10 +1,18 @@
 ﻿@model IEnumerable<MunicipalServices.Data.Receipts>
 
 @{
-    ViewData["Title"] = "Receipts";
+    ViewData["Title"] = "سند الصرف";
 }
 
-@(Html
+<div class="tabs-wrapper dir-rtl">
+    <div class="tabs-buttons">
+        <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
+            إضافة جديد
+        </a>
+    </div>
+</div>
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
+    @(Html
     .Grid(Model)
     .Build(columns =>
     {
@@ -30,47 +38,4 @@
     .Sortable()
     .Pageable()
 )
-
-
-@*<div class="table-responsive">
-    <table class="roots-table table borderless" cellspacing="0">
-        <thead>
-            <tr class="table-row-thead">
-                <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoneyNumber)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoneyText)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Reason)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.OnAccount)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ReceivedFrom)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Currency)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr class="table-row-item">
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FullName)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoneyNumber)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoneyText)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Reason)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.OnAccount)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ReceivedFrom)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Currency)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
-                    <td class="table-text table-product-more-btn">
-                        <div class="dropdown">
-                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
-                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
-                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
-                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>*@
+</div>

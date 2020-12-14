@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<MunicipalServices.Data.CraftAndIndustryLicense>
 
 @{
-    ViewData["Title"] = "CraftAndIndustryLicenses";
+    ViewData["Title"] = "شهادة الحرف والصناعة";
 }
-
-@(Html
+<div class="tabs-wrapper dir-rtl">
+    <div class="tabs-buttons">
+        <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
+            إضافة جديد
+        </a>
+    </div>
+</div>
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
+    @(Html
     .Grid(Model)
     .Build(columns =>
     {
@@ -31,45 +38,4 @@
     .Pageable()
 )
 
-
-
-@*<div class="table-responsive">
-    <table class="roots-table table borderless" cellspacing="0">
-        <thead>
-            <tr class="table-row-thead">
-                <th scope="col">@Html.DisplayNameFor(model => model.LicenseHolderName)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.IdentificationNumber)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.CraftOrIndustryType)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ClassifiedInTail)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Address)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.LicenseFee)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.VoucherNumber)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr class="table-row-item">
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseHolderName)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.IdentificationNumber)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CraftOrIndustryType)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ClassifiedInTail)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Address)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseFee)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.VoucherNumber)</td>
-                    <td class="table-text table-product-more-btn">
-                        <div class="dropdown">
-                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
-                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
-                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
-                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
 </div>

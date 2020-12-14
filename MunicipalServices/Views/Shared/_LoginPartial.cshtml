@@ -7,15 +7,15 @@
         {
             <li class="nav-item dropdown">
                 <a class="nav-link nav-link-dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img style=" border-radius: 50%; height: 40px; width: 40px" src="~/images/content/Rectangle_bckg.jpg" alt="Hello @User.Identity.Name!">
+                    <img style=" border-radius: 50%; height: 40px; width: 40px" src="~/images/content/Rectangle_bckg.jpg" alt="مرحباً @User.Identity.Name!">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">My Profile</a>
+                    <a class="dropdown-item text-right" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">ملفي الشخصي</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="dropdown-item text-right" asp-area="" asp-controller="Home" asp-action="Index">الرئيسية</a>
                     <div class="dropdown-divider"></div>
                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="dropdown-item btn btn-link text-dark">Sign out</button>
+                        <button type="submit" class="dropdown-item btn btn-link text-dark text-right">تسجيل خروج</button>
                     </form>
 
                 </div>
@@ -24,7 +24,7 @@
         else
         {
             <li class="nav-item">
-                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Sign in</a>
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">تسجيل دخول</a>
             </li>
         }
     </ul>

@@ -1,72 +1,74 @@
 ﻿@model MunicipalServices.Data.VacationRequest
 
 @{
-    ViewData["Title"] = "Vacation Request";
+    ViewData["Title"] = "طلب اجازة";
 }
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
-<div class="content-box mt-2">
-    <div class="content-box-header">
-        <h3 class="content-box__title">Delete</h3>
-    </div>
-    <div class="content-box-body">
-        <div class="content-box-body__row row">
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.DaysVacation)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DaysVacation)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label">@Html.DisplayNameFor(model => model.StartVacationDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.StartVacationDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.EndVacationDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.EndVacationDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.City)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.City)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Street)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Street)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.PhoneNumber)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.NameAssignee)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.NameAssignee)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.Agree)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Agree)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.VacationType)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.VacationType)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
-            </div>
-            <div class="form-item-valid form-group col-12 col-md-6">
-                <label class="input-label"> @Html.DisplayNameFor(model => model.User)</label>
-                <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+    <div class="content-box mt-2">
+        <div class="content-box-header">
+            <h3 class="content-box__title text-right">حذف</h3>
+        </div>
+        <div class="content-box-body">
+            <div class="content-box-body__row row">
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.DaysVacation)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.DaysVacation)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right">@Html.DisplayNameFor(model => model.StartVacationDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.StartVacationDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.EndVacationDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.EndVacationDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.City)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.City)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Street)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Street)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.NameAssignee)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.NameAssignee)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Agree)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Agree)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.VacationType)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.VacationType)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
+                </div>
+                <div class="form-item-valid form-group col-12 col-md-6">
+                    <label class="input-label text-right"> @Html.DisplayNameFor(model => model.User)</label>
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
+                </div>
             </div>
         </div>
+        <br />
+        <div class="root-space__btn-wrapp col-12">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="ID" />
+                <a asp-action="Index" class="roots-btn btn btn-primary ml-3">إلغاء</a>
+                <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">حذف</button>
+            </form>
+        </div>
+        <br />
     </div>
-    <br />
-    <div class="root-space__btn-wrapp" style="margin-left:15px;">
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="ID" />
-            <a asp-action="Index" class="roots-btn btn btn-primary mr-3">Cancel</a>
-            <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
-        </form>
     </div>
-    <br />
-</div>

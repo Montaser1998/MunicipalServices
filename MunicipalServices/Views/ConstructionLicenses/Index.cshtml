@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<MunicipalServices.Data.ConstructionLicense>
 
 @{
-    ViewData["Title"] = "ConstructionLicenses";
+    ViewData["Title"] = "شهادة البناء";
 }
-
-@(Html
+<div class="tabs-wrapper dir-rtl">
+    <div class="tabs-buttons">
+        <a href="@Url.Action("Create")" class="roots-btn btn btn-primary roots-btn-w-plus" id="btn_create" style="color:white">
+            إضافة جديد
+        </a>
+    </div>
+</div>
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
+    @(Html
     .Grid(Model)
     .Build(columns =>
     {
@@ -38,59 +45,4 @@
     .Pageable()
 )
 
-@*<div class="table-responsive">
-    <table class="roots-table table borderless" cellspacing="0">
-        <thead>
-            <tr class="table-row-thead">
-                <th scope="col">@Html.DisplayNameFor(model => model.DateOfIssuance)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.FileNumber)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ValidatedBySessionNumber)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.TownName)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.District)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Street)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Basin)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ConstructionUse)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ConstructionLicenseType)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.LocalCommitteeNumber)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.DateApprovalLocalCommittee)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.LicenseDescription)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.FeeDate)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.RemainingFeesDate)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr class="table-row-item">
-                    <td class="table-bold-text">@item.DateOfIssuance.ToShortDateString()</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.FileNumber)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ValidatedBySessionNumber)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.TownName)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.District)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Street)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.Basin)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionUse)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.ConstructionLicenseType)</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LocalCommitteeNumber)</td>
-                    <td class="table-bold-text">@item.DateApprovalLocalCommittee.ToShortDateString()</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.LicenseDescription)</td>
-                    <td class="table-bold-text">@item.FeeDate.ToShortDateString()</td>
-                    <td class="table-bold-text">@item.RemainingFeesDate.ToShortDateString()</td>
-                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
-                    <td class="table-text table-product-more-btn">
-                        <div class="dropdown">
-                            <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
-                                <a class="dropdown-item" asp-action="edit" asp-route-id="@item.ID">Edit</a>
-                                <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
-                                <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>*@
+</div>

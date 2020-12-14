@@ -18,12 +18,12 @@ namespace MunicipalServices.Component
         {
             db = context;
         }
-        public IViewComponentResult InvokeAsync(Guid id, bool IsCatchReceipts)
+        public async Task<IViewComponentResult> InvokeAsync(Guid id, bool IsCatchReceipts)
         {
-            var items = GetItemsAsync(id, IsCatchReceipts);
+            var items = await GetItemsAsync(id, IsCatchReceipts);
             return View(items);
         }
-        private IQueryable<Data.CashiersCheck> GetItemsAsync(Guid id, bool IsCatchReceipts)
+        private async Task<IQueryable<Data.CashiersCheck>> GetItemsAsync(Guid id, bool IsCatchReceipts)
         {
             var model = db.CashiersCheck.Include(u => u.User).AsQueryable();
             if (IsCatchReceipts)

@@ -1,59 +1,61 @@
 ﻿@model MunicipalServices.Data.WaterMeterSubscriptionRequest
 
 @{
-    ViewData["Title"] = "Water Meter Subscription Request";
+    ViewData["Title"] = "طلب اشتراك عداد المياه";
 }
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
-<form asp-action="Edit" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="content-box mt-2">
-        <div class="content-box-header">
-            <h3 class="content-box__title">Edit</h3>
-        </div>
-        <div class="content-box-body">
-            <div class="content-box-body__row row">
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="Location" class="control-label"></label>
-                    <input asp-for="Location" class="form-control" />
-                    <span asp-validation-for="Location" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="PhoneNumber" class="control-label"></label>
-                    <input asp-for="PhoneNumber" class="form-control" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="BasinNumber" class="control-label"></label>
-                    <input asp-for="BasinNumber" class="form-control" />
-                    <span asp-validation-for="BasinNumber" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="PieceNumber" class="control-label"></label>
-                    <input asp-for="PieceNumber" class="form-control" />
-                    <span asp-validation-for="PieceNumber" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="WaterOfficialSuggestions" class="control-label"></label>
-                    <input asp-for="WaterOfficialSuggestions" class="form-control" />
-                    <span asp-validation-for="WaterOfficialSuggestions" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="MunicipalityDecision" class="control-label"></label>
-                    <input asp-for="MunicipalityDecision" class="form-control" />
-                    <span asp-validation-for="MunicipalityDecision" class="text-danger"></span>
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="content-box mt-2">
+            <div class="content-box-header">
+                <h3 class="content-box__title text-right">تعديل</h3>
+            </div>
+            <div class="content-box-body">
+                <div class="content-box-body__row row">
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Name" class="input-label text-right"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Location" class="input-label text-right"></label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="PhoneNumber" class="input-label text-right"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="BasinNumber" class="input-label text-right"></label>
+                        <input asp-for="BasinNumber" class="form-control" />
+                        <span asp-validation-for="BasinNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="PieceNumber" class="input-label text-right"></label>
+                        <input asp-for="PieceNumber" class="form-control" />
+                        <span asp-validation-for="PieceNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="WaterOfficialSuggestions" class="input-label text-right"></label>
+                        <input asp-for="WaterOfficialSuggestions" class="form-control" />
+                        <span asp-validation-for="WaterOfficialSuggestions" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="MunicipalityDecision" class="input-label text-right"></label>
+                        <input asp-for="MunicipalityDecision" class="form-control" />
+                        <span asp-validation-for="MunicipalityDecision" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
+            <br />
+            <div class="root-space__btn-wrapp col-12">
+                <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">إلغاء</a>
+                <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">حفظ</button>
+            </div>
+            <br />
         </div>
-        <br />
-        <div class="root-space__btn-wrapp col-12">
-            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
-            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Save</button>
+    </form>
         </div>
-        <br />
-    </div>
-</form>

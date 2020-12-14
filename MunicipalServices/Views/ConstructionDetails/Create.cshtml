@@ -1,7 +1,7 @@
 ﻿@model MunicipalServices.Data.ConstructionDetails
 
 @{
-    ViewData["Title"] = "Construction Details";
+    ViewData["Title"] = "تفاصيل البناء";
 }
 
 <form asp-action="Create" enctype="multipart/form-data">
@@ -9,28 +9,28 @@
     <input type="hidden" asp-for="ConstructionLicenseID" />
     <div class="content-box mt-2">
         <div class="content-box-header">
-            <h3 class="content-box__title">Create</h3>
+            <h3 class="content-box__title text-right">إنشاء جديد</h3>
         </div>
 
         <div class="content-box-body">
             <div class="content-box-body__row row">
                 <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="ConstructionDescription" class="control-label"></label>
+                    <label asp-for="ConstructionDescription" class="input-label text-right"></label>
                     <input asp-for="ConstructionDescription" class="form-control" />
                     <span asp-validation-for="ConstructionDescription" class="text-danger"></span>
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="Amount" class="control-label"></label>
+                    <label asp-for="Amount" class="input-label text-right"></label>
                     <input asp-for="Amount" class="form-control" />
                     <span asp-validation-for="Amount" class="text-danger"></span>
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="MeasruingUnit" class="control-label"></label>
+                    <label asp-for="MeasruingUnit" class="input-label text-right"></label>
                     <input asp-for="MeasruingUnit" class="form-control" />
                     <span asp-validation-for="MeasruingUnit" class="text-danger"></span>
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="UnitPrice" class="control-label"></label>
+                    <label asp-for="UnitPrice" class="input-label text-right"></label>
                     <input asp-for="UnitPrice" class="form-control" />
                     <span asp-validation-for="UnitPrice" class="text-danger"></span>
                 </div>
@@ -38,8 +38,8 @@
         </div>
         <br />
         <div class="root-space__btn-wrapp col-12">
-            <a asp-action="details" asp-controller="ConstructionLicenses" asp-route-id="@Model.ConstructionLicenseID" class="roots-btn btn btn-secondary mr-3">Cancel</a>
-            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Create</button>
+            <a asp-action="details" asp-controller="ConstructionLicenses" asp-route-id="@Model.ConstructionLicenseID" class="roots-btn btn btn-secondary mr-3">إلغاء</a>
+            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">إضافة</button>
         </div>
         <br />
     </div>

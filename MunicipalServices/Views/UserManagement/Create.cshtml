@@ -2,45 +2,47 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
-<h2>Edit</h2>
+    <h2>Edit</h2>
 
-<form asp-action="Create" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="content-box mt-2">
-        <div class="content-box-header">
-            <h3 class="content-box__title">Create</h3>
-        </div>
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="content-box mt-2">
+            <div class="content-box-header">
+                <h3 class="content-box__title">إضافة</h3>
+            </div>
 
-        <div class="content-box-body">
-            <div class="content-box-body__row row">
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="FullName" class="control-label"></label>
-                    <input asp-for="FullName" class="form-control" />
-                    <span asp-validation-for="FullName" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="PhoneNumber" class="control-label"></label>
-                    <input asp-for="PhoneNumber" class="form-control" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
-                    <label asp-for="Gender" class="control-label"></label>
-                    <select asp-for="Gender" asp-items="ViewBag.Gender" class="form-control" />
-                    <span asp-validation-for="Gender" class="text-danger"></span>
+            <div class="content-box-body">
+                <div class="content-box-body__row row">
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-item-valid form-group col-12 col-md-6">
+                        <label asp-for="Gender" class="control-label"></label>
+                        <select asp-for="Gender" asp-items="ViewBag.Gender" class="form-control" />
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
+            <br />
+            <div class="root-space__btn-wrapp col-12">
+                <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">إلغاء</a>
+                <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">إضافة</button>
+            </div>
+            <br />
         </div>
-        <br />
-        <div class="root-space__btn-wrapp col-12">
-            <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">Cancel</a>
-            <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">Create</button>
+    </form>
         </div>
-        <br />
-    </div>
-</form>
