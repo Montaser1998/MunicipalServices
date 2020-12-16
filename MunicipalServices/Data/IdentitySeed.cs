@@ -14,7 +14,7 @@ namespace MunicipalServices.Data
             await roleManager.CreateAsync(new IdentityRole("الادارة"));
             await roleManager.CreateAsync(new IdentityRole("قسم المالية"));
             await roleManager.CreateAsync(new IdentityRole("قسم الهندسة"));
-            await roleManager.CreateAsync(new IdentityRole("قسم المياة" ));
+            await roleManager.CreateAsync(new IdentityRole("قسم المياه"));
         }
         public static async Task SeedAdminAsync(UserManager<Users> userManager, RoleManager<IdentityRole> roleManager)
         {
@@ -93,6 +93,7 @@ namespace MunicipalServices.Data
                 UserName = "employeeWater",
                 Email = "EmployeeWater@default.com",
                 FullName = "EmployeeWater",
+                CreatedDate = DateTime.UtcNow,
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };

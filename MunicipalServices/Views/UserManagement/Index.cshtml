@@ -15,7 +15,7 @@
         columns.Add(model => model.PhoneNumber).Titled("رقم الهاتف");
         columns.Add(model => model.Gender).Titled("الجنس");
         columns.Add(model => model.EmailConfirmed).Titled("تم تأكيد البريد الإلكتروني");
-        columns.Add(model => model.CreatedDate).Titled("تاريخ الإنشاء");
+        columns.Add(model => model.CreatedDate).Titled("تاريخ الإنشاء").Formatted("{0:d}");
         columns.Add(model => model.Deleted).Titled("محذوف");
         columns.Add(model => (!(UserManager.IsInRoleAsync(model, "الادارة").Result) ? $"<div class=\"dropdown\">" +
         $"<button class=\"table-dropdow-btn btn\" type=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">...</button>" +

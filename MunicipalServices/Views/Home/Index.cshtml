@@ -9,7 +9,7 @@
     <div class="text-center">
         @if (SignInManager.IsSignedIn(User))
         {
-            <h1 class="display-4">مرحباً @((await UserManager.GetUserAsync(User)).FullName)!</h1>
+            <h1 class="display-4">مرحباً @((await UserManager.GetUserAsync(User))?.FullName)!</h1>
         }
         else
         {

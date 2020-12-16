@@ -29,30 +29,37 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
         {
             UserRoles = new List<UserRolesViewModel>();
             UserId = userId;
-            //ViewBag.userId = userId;
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 return;
             }
-            UserName = user.UserName;
-            //ViewBag.UserName = user.UserName;
-            foreach (var role in _roleManager.Roles)
+            UserName = user.FullName;
+            var roles = _roleManager.Roles.ToList();
+            foreach (var role in roles)
             {
-                var userRolesViewModel = new UserRolesViewModel
+                try
                 {
-                    RoleId = role.Id,
-                    RoleName = role.Name
-                };
-                if (await _userManager.IsInRoleAsync(user, role.Name))
-                {
-                    userRolesViewModel.Selected = true;
+                    var userRolesViewModel = new UserRolesViewModel
+                    {
+                        RoleId = role.Id,
+                        RoleName = role.Name
+                    };
+                    var result = await _userManager.IsInRoleAsync(user, role.Name);
+                    if (result)
+                    {
+                        userRolesViewModel.Selected = true;
+                    }
+                    else
+                    {
+                        userRolesViewModel.Selected = false;
+                    }
+                    UserRoles.Add(userRolesViewModel);
                 }
-                else
+                catch (Exception ex)
                 {
-                    userRolesViewModel.Selected = false;
+
                 }
-                UserRoles.Add(userRolesViewModel);
             }
         }
         public async Task<IActionResult> OnPost()
