@@ -11,7 +11,7 @@ using MunicipalServices.Data;
 
 namespace MunicipalServices.Controllers
 {
-    [Authorize(Roles = "الادارة")]
+    [Authorize(Roles = "قسم المالية,الادارة")]
     public class ComplaintFormsController : Controller
     {
         private readonly ApplicationDbContext _context;

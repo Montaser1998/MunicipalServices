@@ -30,8 +30,9 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "حقل البريد الإلكتروني مطلوب")]
+            [EmailAddress(ErrorMessage = "حقل البريد الإلكتروني ليس عنوان بريد إلكتروني صالحًا")]
+            [Display(Name = "البريد الإلكتروني")]
             public string Email { get; set; }
         }
 

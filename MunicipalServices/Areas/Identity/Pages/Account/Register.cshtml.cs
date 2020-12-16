@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -45,29 +46,34 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [Display(Name = "Full Name")]
+            [Required(ErrorMessage ="الرجاء ادخال اسمك الرباعي")]
+            [Display(Name = "الإسم الكامل")]
             public string FullName { get; set; }
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "حقل البريد الإلكتروني مطلوب")]
+            [EmailAddress(ErrorMessage = "حقل البريد الإلكتروني ليس عنوان بريد إلكتروني صالحًا")]
+            [Display(Name = "البريد الإلكتروني")]
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Display(Name = "الجنس")]
+            public Data.Gender Gender { get; set; }
+
+            [Required(ErrorMessage = "حقل كلمة المرور مطلوب")]
+            [StringLength(100, ErrorMessage = "يجب أن يكون عدد الأحرف {0} على الأقل {2} والحد الأقصى لعدد الأحرف {1}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "كلمة المرور")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "تأكيد كلمة المرور")]
+            [Compare("Password", ErrorMessage = "كلمة المرور وكلمة المرور التأكيدية غير متطابقين.")]
             public string ConfirmPassword { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            ViewData["Gender"] = new SelectList(from Data.Gender d in Enum.GetValues(typeof(Data.Gender)) select new { ID = (int)d, Name = Helper.Enumerations.GetEnumDescription(d) }, "ID", "Name");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -77,7 +83,7 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new Data.Users { UserName = Input.Email, Email = Input.Email, FullName = Input.FullName, CreatedDate = DateTime.UtcNow };
+                var user = new Data.Users { UserName = Input.Email, Email = Input.Email, FullName = Input.FullName, CreatedDate = DateTime.UtcNow, Gender = Input.Gender };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

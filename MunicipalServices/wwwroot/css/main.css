@@ -1509,15 +1509,15 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #404252;
-    border-color: #404252
+    background-color: #03A9F4;
+    border-color: #03A9F4
 }
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #2f313d;
-    border-color: #2a2b35
-}
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #03A9F4;
+        border-color: #03A9F4
+    }
 
 .btn-primary.focus, .btn-primary:focus {
     -webkit-box-shadow: 0 0 0 .2rem rgba(64, 66, 82, .5);
@@ -1530,11 +1530,11 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #404252
 }
 
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #2a2b35;
-    border-color: #24252e
-}
+    .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: #03A9F4;
+        border-color: #03A9F4
+    }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
     -webkit-box-shadow: 0 0 0 .2rem rgba(64, 66, 82, .5);
@@ -2257,11 +2257,11 @@ a.btn.disabled, fieldset:disabled a.btn {
     background-color: #f8f9fa
 }
 
-.dropdown-item.active, .dropdown-item:active {
-    color: #fff;
-    text-decoration: none;
-    background-color: #404252
-}
+    .dropdown-item.active, .dropdown-item:active {
+        color: #fff;
+        text-decoration: none;
+        background-color: #03A9F4
+    }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
     color: #6c757d;
@@ -2920,11 +2920,10 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-radius: .25rem
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #404252
-}
-
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: #03A9F4
+    }
 .nav-fill .nav-item {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -4679,7 +4678,7 @@ button.close {
 }
 
 .bg-primary {
-    background-color: #404252!important
+    background-color: #03A9F4 !important
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -23,9 +24,14 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: VacationRequests
-        public ViewResult Index()
+        public async Task<ViewResult> Index()
         {
-            var applicationDbContext = _context.VacationRequest.Include(v => v.User).Where(v => v.Deleted == false);
+            var applicationDbContext = _context.VacationRequest.Include(v => v.User).Where(v => v.Deleted == false).AsQueryable();
+            if (!(await usermanager.IsInRoleAsync(await usermanager.GetUserAsync(User), "الادارة")))
+            {
+                var userid = usermanager.GetUserId(User);
+                applicationDbContext = applicationDbContext.Where(c => c.UserID == userid);
+            }
             return View(applicationDbContext);
         }
 
@@ -74,6 +80,16 @@ namespace MunicipalServices.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(vacationRequest);
+        }
+        [HttpGet]
+        [Authorize(Roles = "الادارة")]
+        public async Task<IActionResult> Agree(Guid id)
+        {
+            var vacationRequest = await _context.VacationRequest.FindAsync(id);
+            vacationRequest.Agree = !vacationRequest.Agree;
+            _context.VacationRequest.Update(vacationRequest);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: VacationRequests/Edit/5

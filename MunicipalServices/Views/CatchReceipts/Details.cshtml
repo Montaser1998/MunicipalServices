@@ -67,7 +67,7 @@
     <div class="card bg-light">
         <div class="card-header text-center">الشيكات</div>
         <div class="card-body">
-            <p class="text-left">
+            <p class="text-right">
                 <a asp-action="Create" asp-controller="CashiersChecks" asp-route-id="@Model.ID" asp-route-IsCatchReceipts="true" class="roots-btn btn btn-primary">إضافة جديد</a>
             </p>
             @await Component.InvokeAsync("CashiersChecksList", new { id = Model.ID, IsCatchReceipts = true })

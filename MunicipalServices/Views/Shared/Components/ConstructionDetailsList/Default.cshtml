@@ -8,6 +8,7 @@
     .Grid(Model)
     .Build(columns =>
     {
+        columns.Add().RenderedAs((model, row) => row + 1).Titled("#").Css("text-center");
         columns.Add(model => model.ConstructionDescription).Titled("وصف البناء");
         columns.Add(model => model.Amount).Titled("الكمية");
         columns.Add(model => model.MeasruingUnit).Titled("وحدة القياس");

@@ -22,9 +22,7 @@
         $"<div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownmenubutton\">" +
         $"<a class=\"dropdown-item\" href=\"/Identity/Account/UserRoles?userId={model.Id}\">ادارة الصلاحيات</a>" +
             $"<a class=\"dropdown-item\" href=\"UserManagement/details/{model.Id}\">تفاصيل</a>" +
-            $"<form asp-action=\"UserManagement/Delete/{model.Id}\">" +
-            $"<a class=\"dropdown-item\" data-toggle=\"modal\" data-target=\"#deleteConfirmModal\">حذف</a>" +
-            $"</form>" +
+            $"<a class=\"dropdown-item\" href=\"UserManagement/Delete/{model.Id}\">حذف</a>" +
             $"</div></div>" : "")).Encoded(false);
     })
     .Using(GridFilterMode.Row)

@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "الشيكات";
-    int numberIndex = 0;
 }
 
 @(Html
     .Grid(Model)
     .Build(columns =>
     {
+        columns.Add().RenderedAs((model, row) => row + 1).Titled("#").Css("text-center");
         columns.Add(model => model.CheckNumber).Titled("رقم الشيك");
         columns.Add(model => model.AccountNumber).Titled("رقم الحساب");
         columns.Add(model => model.CodeBank).Titled("رمز البنك");

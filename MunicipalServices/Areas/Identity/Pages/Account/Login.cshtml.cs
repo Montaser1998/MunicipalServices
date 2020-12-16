@@ -42,15 +42,18 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "حقل البريد الإلكتروني مطلوب")]
+            [EmailAddress(ErrorMessage = "حقل البريد الإلكتروني ليس عنوان بريد إلكتروني صالحًا")]
+            [Display(Name = "البريد الإلكتروني")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "حقل كلمة المرور مطلوب")]
+            [StringLength(100, ErrorMessage = "يجب أن يكون عدد الأحرف {0} على الأقل {2} والحد الأقصى لعدد الأحرف {1}.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [Display(Name = "كلمة المرور")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "تذكرني")]
             public bool RememberMe { get; set; }
         }
 
@@ -101,19 +104,19 @@ namespace MunicipalServices.Areas.Identity.Pages.Account
                         }
                         else
                         {
-                            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                            ModelState.AddModelError(string.Empty, "محاولة تسجيل الدخول غير صحيحة.");
                             return Page();
                         }
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "Your account is deleted by Admin");
+                        ModelState.AddModelError(string.Empty, "حسابك تم حذفه من قبل المدير.");
                         return Page();
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "محاولة تسجيل الدخول غير صحيحة.");
                     return Page();
                 }
             }

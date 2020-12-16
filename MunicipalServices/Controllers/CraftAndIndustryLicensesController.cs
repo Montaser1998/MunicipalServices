@@ -10,7 +10,7 @@ using MunicipalServices.Data;
 
 namespace MunicipalServices.Controllers
 {
-    [Authorize(Roles = "قسم الهندسة,الادارة")]
+    [Authorize(Roles = "قسم المالية,الادارة")]
     public class CraftAndIndustryLicensesController : Controller
     {
         private readonly ApplicationDbContext _context;

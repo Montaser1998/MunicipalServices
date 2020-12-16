@@ -1,0 +1,24 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "تأكيد التسجيل";
+}
+
+<div class="roots-content-wrapper my-4 container-fluid text-right" style="min-height:600px">
+
+    @{
+        if (@Model.DisplayConfirmAccountLink)
+        {
+            <p class="p-4" style="font-size: 20px">
+                لا يحتوي هذا الموقع حاليًا على مرسل بريد إلكتروني حقيقي مسجل .
+                عادةً ما يتم إرسال هذا عبر البريد الإلكتروني: <a id="confirm-link" href="@Model.EmailConfirmationUrl"> انقر هنا لتأكيد حسابك </a>
+            </p>
+        }
+        else
+        {
+            <p class="p-4" style="font-size: 20px">
+                يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.
+            </p>
+        }
+    }
+</div>

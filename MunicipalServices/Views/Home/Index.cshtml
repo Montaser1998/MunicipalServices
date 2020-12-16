@@ -1,8 +1,19 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<MunicipalServices.Data.Users> SignInManager
+@inject UserManager<MunicipalServices.Data.Users> UserManager
+
+@{
     ViewData["Title"] = "الرئيسية";
 }
 <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
     <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <h1 class="display-4">مرحباً @((await UserManager.GetUserAsync(User)).FullName)!</h1>
+        }
+        else
+        {
+            <h1 class="display-4">أهلاً وسهلاً بك في خدمات البلدية</h1>
+        }
     </div>
 </div>

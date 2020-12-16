@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "طلب اجازة";
+
+    string agree = Model.Agree ? "تمت الموافقة" : "لم يتم الموافقة بعد";
 }
 <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:600px">
 
@@ -41,11 +43,11 @@
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Agree)</label>
-                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Agree)">
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@agree"/>
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.VacationType)</label>
-                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.VacationType)">
+                    <input class="form-control input" id="inputtext-2" disabled="disabled" value="@MunicipalServices.Helper.Enumerations.GetEnumDescription(Model.VacationType)">
                 </div>
                 <div class="form-item-valid form-group col-12 col-md-6">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.CreatedDate)</label>

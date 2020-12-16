@@ -119,6 +119,23 @@ namespace MunicipalServices.Controllers
             }
             return new string(chars);
         }
+        public async Task<IActionResult> UndoDelete(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            user.Deleted = false;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
         // GET: UserManagement/Delete/5
         public async Task<IActionResult> Delete(string id)

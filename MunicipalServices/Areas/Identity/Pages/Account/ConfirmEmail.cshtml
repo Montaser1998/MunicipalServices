@@ -1,7 +1,12 @@
 ﻿@page
 @model ConfirmEmailModel
 @{
-    ViewData["Title"] = "Confirm email";
+    ViewData["Title"] = "تم تأكيد البريد الإلكتروني";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="roots-content-wrapper my-4 container-fluid text-right" style="min-height:600px">
+
+    <p class="p-4" style="font-size: 20px">
+        تم تأكيد البريد الإلكتروني بنجاح الرجاء الضغط هنا للذهاب الى :  <a class="confirm-link" asp-controller="Home" asp-action="Index">الصفحة الرئيسية</a>
+    </p>
+</div>

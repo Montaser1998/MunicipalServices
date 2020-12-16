@@ -197,7 +197,7 @@
     <div class="card bg-light">
         <div class="card-header text-center">تفاصيل البناء</div>
         <div class="card-body">
-            <p class="text-left">
+            <p class="text-right">
                 <a asp-action="Create" asp-controller="ConstructionDetails" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">إضافة جديد</a>
             </p>
             @await Component.InvokeAsync("ConstructionDetailsList", new { id = Model.ID })
