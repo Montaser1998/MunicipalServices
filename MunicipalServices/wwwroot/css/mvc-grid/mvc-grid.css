@@ -372,13 +372,13 @@
     color: #014c8c;
 }
 
-.mvc-grid-pager .active,
-.mvc-grid-pager .active:focus,
-.mvc-grid-pager .active:hover {
-    background-color: #0275d8;
-    border-color: #0275d8;
-    color: #ffffff;
-}
+    .mvc-grid-pager .active,
+    .mvc-grid-pager .active:focus,
+    .mvc-grid-pager .active:hover {
+        background-color: #ae455a;
+        border-color: #ae455a;
+        color: #ffffff;
+    }
 
 .mvc-grid-pager [disabled],
 .mvc-grid-pager [disabled]:hover {
