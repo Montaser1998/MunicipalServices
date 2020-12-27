@@ -62,15 +62,15 @@
         <div class="root-space__btn-wrapp col-12">
             @if (Model.CatchReceiptID != null)
             {
-                <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary mr-3">رجوع</a>
+                <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary ml-3">رجوع</a>
             }
             else if (Model.ReceiptID != null)
             {
-                <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary mr-3">رجوع</a>
+                <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary ml-3">رجوع</a>
             }
             else
             {
-                <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">رجوع</a>
+                <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">رجوع</a>
             }
             <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">تعديل</a>
         </div>

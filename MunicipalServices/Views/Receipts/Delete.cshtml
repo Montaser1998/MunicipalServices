@@ -1,7 +1,7 @@
 ﻿@model MunicipalServices.Data.Receipts
 
 @{
-    ViewData["Title"] = "سند الصرف";
+    ViewData["Title"] = "سندات الصرف";
 }
 <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:700px">
 
@@ -57,8 +57,8 @@
         <div class="root-space__btn-wrapp col-12">
             <form asp-action="Delete">
                 <input type="hidden" asp-for="ID" />
-                <a asp-action="Index" class="roots-btn btn btn-primary ml-3">Cancel</a>
-                <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
+                <a asp-action="Index" class="roots-btn btn btn-primary ml-3">إلغاء</a>
+                <button type="button" class="roots-btn btn btn-secondary" data-toggle="modal" data-target="#deleteConfirmModal">حذف</button>
             </form>
         </div>
         <br />

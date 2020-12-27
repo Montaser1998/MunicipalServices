@@ -38,7 +38,7 @@ namespace MunicipalServices.Controllers
             }
 
             var receipts = await _context.Receipts
-                .Include(r => r.User)
+                .Include(r => r.User).Include(c=>c.CashiersChecks)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (receipts == null)
             {

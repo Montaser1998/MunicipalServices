@@ -24,10 +24,18 @@ namespace MunicipalServices.Controllers
         }
 
         // GET: CashiersChecks
-        public ViewResult Index()
+        public PartialViewResult Index(Guid id, bool IsCatchReceipts)
         {
-            var applicationDbContext = _context.CashiersCheck.Include(c => c.CatchReceipt).Include(c => c.Receipt).Include(c => c.User).Where(c => c.Deleted == false);
-            return View(applicationDbContext);
+            var model = _context.CashiersCheck.Include(u => u.User).AsQueryable();
+            if (IsCatchReceipts)
+            {
+                model = model.Where(c => c.Deleted == false && c.CatchReceiptID == id);
+            }
+            else
+            {
+                model = model.Where(c => c.Deleted == false && c.ReceiptID == id);
+            }
+            return PartialView(model.OrderBy(c => c.CreatedDate));
         }
 
         // GET: CashiersChecks/Details/5

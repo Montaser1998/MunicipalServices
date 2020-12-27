@@ -2,53 +2,38 @@
 
 @{
     ViewData["Title"] = "الشيكات";
+    int numberIndex = 1;
 }
 <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:700px">
-
-    <div class="table-responsive">
-        <table class="roots-table table borderless" cellspacing="0">
-            <thead>
-                <tr class="table-row-thead">
-                    <th scope="col">الرقم</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.CheckNumber)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.AccountNumber)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.CodeBank)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.BankName)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.CodeBranch)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.DateOfTheWorthy)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoney)</th>
-                    <th scope="col">@Html.DisplayNameFor(model => model.User)</th>
-                    <th></th>
+    <table class="roots-table table borderless" cellspacing="0">
+        <thead>
+            <tr class="table-row-thead">
+                <th scope="col">الرقم</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CheckNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AccountNumber)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CodeBank)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.BankName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.CodeBranch)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.DateOfTheWorthy)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.AmountOfMoney)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-row-item">
+                    <td class="table-bold-text">@(numberIndex++)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CheckNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBank)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.BankName)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBranch)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateOfTheWorthy)</td>
+                    <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoney)</td>
+                    <td class="table-text table-product-more-btn"></td>
                 </tr>
-            </thead>
-            <tbody>
-                @{ int numberIndex = 1; }
-                @foreach (var item in Model)
-                {
-                    <tr class="table-row-item">
-                        <td class="table-bold-text">@numberIndex</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CheckNumber)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AccountNumber)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBank)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.BankName)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.CodeBranch)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.DateOfTheWorthy)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.AmountOfMoney)</td>
-                        <td class="table-bold-text">@Html.DisplayFor(modelItem => item.User.FullName)</td>
-                        <td class="table-text table-product-more-btn">
-                            <div class="dropdown">
-                                <button class="table-dropdow-btn btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">...</button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownmenubutton">
-                                    <a class="dropdown-item" asp-action="edit" asp-route-CashiersCheckID="@item.ID">Edit</a>
-                                    <a class="dropdown-item" asp-action="details" asp-route-id="@item.ID">Details</a>
-                                    <a class="dropdown-item" asp-action="delete" asp-route-id="@item.ID">Delete</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @(numberIndex++)
-                }
-            </tbody>
-        </table>
-    </div>
-    </div>
+            }
+        </tbody>
+    </table>
+</div>

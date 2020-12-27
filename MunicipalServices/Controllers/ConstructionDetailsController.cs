@@ -74,11 +74,15 @@ namespace MunicipalServices.Controllers
                 constructionDetails.Total = constructionDetails.Amount * constructionDetails.UnitPrice;
                 constructionDetails.UserID = _userManager.GetUserId(User);
                 _context.Add(constructionDetails);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var result = await _context.SaveChangesAsync();
+                if (result > 0)
+                {
+                    if (constructionDetails.ConstructionLicenseID != null)
+                    {
+                        return RedirectToAction(nameof(Details), nameof(Data.ConstructionLicense) + "s", new { id = constructionDetails.ConstructionLicenseID });
+                    }
+                }
             }
-            ViewData["ConstructionLicenseID"] = new SelectList(_context.ConstructionLicense, "ID", "ID", constructionDetails.ConstructionLicenseID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", constructionDetails.UserID);
             return View(constructionDetails);
         }
 
@@ -119,7 +123,14 @@ namespace MunicipalServices.Controllers
                     constructionDetails.UpdatedDate = DateTime.UtcNow;
                     constructionDetails.Total = constructionDetails.Amount * constructionDetails.UnitPrice;
                     _context.Update(constructionDetails);
-                    await _context.SaveChangesAsync();
+                    var result = await _context.SaveChangesAsync();
+                    if (result > 0)
+                    {
+                        if (constructionDetails.ConstructionLicenseID != null)
+                        {
+                            return RedirectToAction(nameof(Details), nameof(Data.ConstructionLicense) + "s", new { id = constructionDetails.ConstructionLicenseID });
+                        }
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -132,7 +143,6 @@ namespace MunicipalServices.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             ViewData["ConstructionLicenseID"] = new SelectList(_context.ConstructionLicense, "ID", "ID", constructionDetails.ConstructionLicenseID);
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", constructionDetails.UserID);

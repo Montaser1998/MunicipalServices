@@ -40,7 +40,7 @@ namespace MunicipalServices.Controllers
 
             var constructionLicense = await _context.ConstructionLicense
                 .Include(c => c.LicenseHolderInformation)
-                .Include(c => c.User)
+                .Include(c => c.User).Include(c=>c.ConstructionDetails)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (constructionLicense == null)
             {

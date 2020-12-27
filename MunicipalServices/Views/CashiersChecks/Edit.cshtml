@@ -64,15 +64,15 @@
             <div class="root-space__btn-wrapp col-12">
                 @if (Model.CatchReceiptID != null)
                 {
-                    <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary mr-3">إلغاء</a>
+                    <a asp-action="details" asp-controller="CatchReceipts" asp-route-id="@Model.CatchReceiptID" class="roots-btn btn btn-secondary ml-3">إلغاء</a>
                 }
                 else if (Model.ReceiptID != null)
                 {
-                    <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary mr-3">إلغاء</a>
+                    <a asp-action="details" asp-controller="Receipts" asp-route-id="@Model.ReceiptID" class="roots-btn btn btn-secondary ml-3">إلغاء</a>
                 }
                 else
                 {
-                    <a asp-action="Index" class="roots-btn btn btn-secondary mr-3">إلغاء</a>
+                    <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">إلغاء</a>
                 }
                 <button type="submit" class="roots-btn btn btn-primary roots-btn-w-plus">حفظ</button>
             </div>

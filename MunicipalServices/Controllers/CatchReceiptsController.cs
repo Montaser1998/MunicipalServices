@@ -39,7 +39,7 @@ namespace MunicipalServices.Controllers
             }
 
             var catchReceipts = await _context.CatchReceipts
-                .Include(c => c.User)
+                .Include(c => c.User).Include(c=>c.CashiersChecks)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (catchReceipts == null)
             {

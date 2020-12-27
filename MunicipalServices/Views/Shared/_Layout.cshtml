@@ -81,7 +81,7 @@
 <body>
     <main>
         <div class="wrapper m-0">
-            <header class="header bg-primary d-flex align-items-center justify-content-between dir-rtl">
+            <header class="header bg-primary d-flex align-items-center justify-content-between dir-rtl d-print-none">
 
                 <div class="sidebar-header bg-primary border-right pl-4 d-flex align-items-center">
                     <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">خدمات البلدية</a>
@@ -100,11 +100,11 @@
             <div class="roots-content sidebar-is-hidden d-flex flex-column">
                 @RenderBody()
             </div>
-            <footer class="border-top footer footer-distributed text-center" style="vertical-align:bottom">
+            <footer class="border-top footer footer-distributed text-center d-print-none" style="vertical-align:bottom">
                 جميع الحقوق محفوظة - خدمات البلدية  &copy; @DateTime.Now.Year | صنع بكل ❤ بواسطة امل عرينات
             </footer>
 
-            <nav id="sidebar" class="sidebar d-flex dir-rtl border-left">
+            <nav id="sidebar" class="sidebar d-flex dir-rtl border-left d-print-none">
                 <ul class="sidebar__list list-unstyled border-right m-0 pt-5">
                     <li class="sidebar__list-item pl-4 pt-1 pb-2 pr-2 mb-3 d-flex">
                         <div class="sidebar__list-pic">
@@ -169,7 +169,7 @@
                                 </svg>
                             </div>
                             <div class="sidebar__list-content ml-3 text-right pr-3">
-                                <a class="sidebar-item-link input-label" asp-controller="WaterMeterSubscriptionRequests" asp-action="Index">طلب اشتراك عداد المياه</a>
+                                <a class="sidebar-item-link input-label" asp-controller="WaterMeterSubscriptionRequests" asp-action="Index">طلبات اشتراك عداد المياه</a>
                             </div>
                         </li>
                     }
@@ -183,7 +183,7 @@
                                 </svg>
                             </div>
                             <div class="sidebar__list-content ml-3 text-right pr-3">
-                                <a class="sidebar-item-link input-label" asp-controller="CraftAndIndustryLicenses" asp-action="Index">شهادة الحرف والصناعة</a>
+                                <a class="sidebar-item-link input-label" asp-controller="CraftAndIndustryLicenses" asp-action="Index">شهادات الحرف والصناعة</a>
                             </div>
                         </li>
                     }

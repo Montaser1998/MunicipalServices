@@ -1,62 +1,64 @@
 ﻿@model MunicipalServices.Data.WaterMeterSubscriptionRequest
 
 @{
-    ViewData["Title"] = "طلب اشتراك عداد المياه";
+    ViewData["Title"] = "طلبات اشتراك عداد المياه";
 }
 <div class="roots-content-wrapper my-4 container-fluid dir-rtl" style="min-height:700px">
 
     <div class="content-box mt-2">
         <div class="content-box-header">
-            <h3 class="content-box__title text-right">تفاصيل</h3>
+            <h3 class="content-box__title text-right d-print-none">تفاصيل</h3>
+            <h3 class="content-box__title text-right d-none d-print-block">طلب اشتراك عداد المياه - تفاصيل</h3>
         </div>
         <div class="content-box-body">
             <div class="content-box-body__row row">
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.Name)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Name)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right">@Html.DisplayNameFor(model => model.Location)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.Location)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.PhoneNumber)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PhoneNumber)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.BasinNumber)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.BasinNumber)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.PieceNumber)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.PieceNumber)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.WaterOfficialSuggestions)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.WaterOfficialSuggestions)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.MunicipalityDecision)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.MunicipalityDecision)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.CreatedDate)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.CreatedDate)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3 d-print-none">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.UpdatedDate)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.UpdatedDate)">
                 </div>
-                <div class="form-item-valid form-group col-12 col-md-6">
+                <div class="form-item-valid form-group col-6 col-md-3 d-print-none">
                     <label class="input-label text-right"> @Html.DisplayNameFor(model => model.User)</label>
                     <input class="form-control input" id="inputtext-2" disabled="disabled" value="@Html.DisplayFor(model => model.User.FullName)">
                 </div>
             </div>
         </div>
         <br />
-        <div class="root-space__btn-wrapp col-12">
+        <div class="root-space__btn-wrapp col-12 d-print-none">
             <a asp-action="Index" class="roots-btn btn btn-secondary ml-3">رجوع</a>
-            <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary">تعديل</a>
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="roots-btn btn btn-primary ml-3">تعديل</a>
+            <button onclick="window.print()" class="roots-btn btn btn-primary">طباعة</button>
         </div>
         <br />
     </div>
