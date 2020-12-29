@@ -33,6 +33,7 @@ namespace MunicipalServices.Data
         public string ProfileImageURL { get; set; }
         [Display(Name = "الجنس")]
         public Gender Gender { get; set; }
+        public DateTime LastDateLogined { get; set; }
     }
     public enum Gender
     {

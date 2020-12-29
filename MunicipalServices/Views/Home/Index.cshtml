@@ -10,6 +10,82 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <h1 class="display-4">مرحباً @((await UserManager.GetUserAsync(User))?.FullName)!</h1>
+            <h5 class="display-5">اخر جسلة كانت بتاريخ : @((await UserManager.GetUserAsync(User))?.LastDateLogined)</h5>
+
+
+            <div class="mt-lg-5">
+                <div class="card-columns">
+                    @if (this.User.IsInRole("الادارة") || this.User.IsInRole("قسم المالية"))
+                    {
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد سندات القبض المضافة من قبلك :
+                                    @ViewBag.CatchReceipts
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد نماذج الشكاوى المضافة من قبلك :
+                                    @ViewBag.ComplaintForm
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد سندات الصرف المضافة من قبلك :
+                                    @ViewBag.Receipts
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد شهادات الحرف والصناعة المضافة من قبلك :
+                                    @ViewBag.CraftAndIndustryLicense
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    @if (this.User.IsInRole("الادارة") || this.User.IsInRole("قسم الهندسة"))
+                    {
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد رخص البناء المضافة من قبلك :
+                                    @ViewBag.ConstructionLicense
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    @if (this.User.IsInRole("قسم المياه") || this.User.IsInRole("الادارة"))
+                    {
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد طلبات اشتراك عداد المياه المضافة من قبلك :
+                                    @ViewBag.WaterMeterSubscriptionRequest
+                                </p>
+                            </div>
+                        </div>
+                    }
+                    @if (this.User.IsInRole("الادارة"))
+                    {
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    عدد الموظفين الموجودين حاليا :
+                                    @ViewBag.Users
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
         }
         else
         {
